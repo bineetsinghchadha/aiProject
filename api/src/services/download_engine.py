@@ -9,14 +9,14 @@ from youtube_transcript_api import YouTubeTranscriptApi
 
 # Cookie handling: inside Docker use a mounted cookies file,
 # on the host use Chrome cookies directly.
-_COOKIES_FILE = os.getenv("YT_COOKIES_FILE", "/app/cookies.txt")
+# _COOKIES_FILE = os.getenv("YT_COOKIES_FILE", "/app/cookies.txt")
 
 def _yt_dlp_opts(**extra):
     """Base yt-dlp options. Cookies are optional — yt-dlp works without them
     by using alternative YouTube clients (Android VR) that bypass n-challenge."""
     opts = {"quiet": True, "no_warnings": True}
-    if pathlib.Path(_COOKIES_FILE).exists():
-        opts["cookiefile"] = _COOKIES_FILE
+    # if pathlib.Path(_COOKIES_FILE).exists():
+    #     opts["cookiefile"] = _COOKIES_FILE
     opts.update(extra)
     return opts
 
@@ -79,7 +79,7 @@ def download_caption(url, destination_folder, filename=None):
         return str(save_path)
     print(f"Downloading captions for {title}... ", end=" ", flush=True)
     api = YouTubeTranscriptApi()
-    caption = api.fetch(video_id).to_raw_data()
+    caption = api.fetch(video_id,languages=['en-US', 'en']).to_raw_data()
     with open(save_path, 'w') as outfile:
         for segment in caption:
             outfile.write(json.dumps(segment) + "\n")

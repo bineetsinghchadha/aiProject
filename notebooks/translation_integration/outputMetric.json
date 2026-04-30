@@ -1,0 +1,4143 @@
+{
+  "config": {
+    "target_duration_s": 3.0,
+    "max_chars": 45,
+    "num_segments": 170
+  },
+  "segments": [
+    {
+      "index": 0,
+      "source": "60 Minutes overtime.",
+      "baseline": {
+        "text": "60 minutos horas extra.",
+        "char_count": 23
+      },
+      "candidates": [
+        {
+          "text": "60 minutos horas extra.",
+          "char_count": 23,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 1,
+      "source": "What's the worst case scenario that",
+      "baseline": {
+        "text": "¿Cuál es el peor escenario?",
+        "char_count": 27
+      },
+      "candidates": [
+        {
+          "text": "¿Cuál es peor escenario?",
+          "char_count": 24,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "dropped pronouns/articles"
+        },
+        {
+          "text": "¿Cuál es el peor escenario?",
+          "char_count": 27,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 2,
+      "source": "you're worried about is that it is",
+      "baseline": {
+        "text": "Te preocupa que sea",
+        "char_count": 19
+      },
+      "candidates": [
+        {
+          "text": "Te preocupa que sea",
+          "char_count": 19,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 3,
+      "source": "closed for weeks and weeks and weeks",
+      "baseline": {
+        "text": "cerrado durante semanas y semanas y semanas",
+        "char_count": 43
+      },
+      "candidates": [
+        {
+          "text": "cerrado durante semanas y semanas y semanas",
+          "char_count": 43,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 4,
+      "source": "here and you start to see the global",
+      "baseline": {
+        "text": "y empiezas a ver el mundo",
+        "char_count": 25
+      },
+      "candidates": [
+        {
+          "text": "y empiezas a ver mundo",
+          "char_count": 22,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "dropped pronouns/articles"
+        },
+        {
+          "text": "y empiezas a ver el mundo",
+          "char_count": 25,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 5,
+      "source": "economy really being impacted because",
+      "baseline": {
+        "text": "la economía realmente impactada porque",
+        "char_count": 38
+      },
+      "candidates": [
+        {
+          "text": "la economía impactada porque",
+          "char_count": 28,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "removed fillers"
+        },
+        {
+          "text": "la economía realmente impactada porque",
+          "char_count": 38,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 6,
+      "source": "the it is the lifeblood to a certain",
+      "baseline": {
+        "text": "es la sangre de la vida a cierto",
+        "char_count": 32
+      },
+      "candidates": [
+        {
+          "text": "es sangre de vida a cierto",
+          "char_count": 26,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "dropped pronouns/articles"
+        },
+        {
+          "text": "es la sangre de la vida a cierto",
+          "char_count": 32,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 7,
+      "source": "extent. So the reality is the longer",
+      "baseline": {
+        "text": "extensión. Así que la realidad es más larga",
+        "char_count": 43
+      },
+      "candidates": [
+        {
+          "text": "extensión. Así que realidad es más larga",
+          "char_count": 40,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "dropped pronouns/articles"
+        },
+        {
+          "text": "extensión. Así que la realidad es más larga",
+          "char_count": 43,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 8,
+      "source": "that this goes on, the greater impact",
+      "baseline": {
+        "text": "que esto continúa, el mayor impacto",
+        "char_count": 35
+      },
+      "candidates": [
+        {
+          "text": "que esto continúa, mayor impacto",
+          "char_count": 32,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "dropped pronouns/articles"
+        },
+        {
+          "text": "que esto continúa, el mayor impacto",
+          "char_count": 35,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 9,
+      "source": "it's going to have across industries,",
+      "baseline": {
+        "text": "va a tener a través de industrias,",
+        "char_count": 34
+      },
+      "candidates": [
+        {
+          "text": "va a tener a través de industrias,",
+          "char_count": 34,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 10,
+      "source": "across regions. This week on 60 Minutes,",
+      "baseline": {
+        "text": "en todas las regiones. Esta semana en 60 minutos,",
+        "char_count": 49
+      },
+      "candidates": [
+        {
+          "text": "en todas las regiones",
+          "char_count": 21,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "truncated to fit duration"
+        },
+        {
+          "text": "en todas regiones. Esta semana en 60 minutos,",
+          "char_count": 45,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "dropped pronouns/articles"
+        },
+        {
+          "text": "en todas las regiones. Esta semana en 60 minutos,",
+          "char_count": 49,
+          "within_budget": false,
+          "shorter_than_baseline": true,
+          "valid": false,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": false
+    },
+    {
+      "index": 11,
+      "source": "we report on the Straight of Hormuz,",
+      "baseline": {
+        "text": "informamos sobre la Straight of Hormuz,",
+        "char_count": 39
+      },
+      "candidates": [
+        {
+          "text": "informamos sobre Straight of Hormuz,",
+          "char_count": 36,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "dropped pronouns/articles"
+        },
+        {
+          "text": "informamos sobre la Straight of Hormuz,",
+          "char_count": 39,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 12,
+      "source": "that narrow waterway on Iran's southern",
+      "baseline": {
+        "text": "esa vía estrecha en el sur de Irán",
+        "char_count": 34
+      },
+      "candidates": [
+        {
+          "text": "esa vía estrecha en sur de Irán",
+          "char_count": 31,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "dropped pronouns/articles"
+        },
+        {
+          "text": "esa vía estrecha en el sur de Irán",
+          "char_count": 34,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 13,
+      "source": "coast. It connects the oil richch",
+      "baseline": {
+        "text": "costa. Conecta el rico de aceite",
+        "char_count": 32
+      },
+      "candidates": [
+        {
+          "text": "costa. Conecta rico de aceite",
+          "char_count": 29,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "dropped pronouns/articles"
+        },
+        {
+          "text": "costa. Conecta el rico de aceite",
+          "char_count": 32,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 14,
+      "source": "countries of the Persian Gulf to the",
+      "baseline": {
+        "text": "países del Golfo Pérsico al",
+        "char_count": 27
+      },
+      "candidates": [
+        {
+          "text": "países del Golfo Pérsico al",
+          "char_count": 27,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 15,
+      "source": "rest of the world. The ships that pass",
+      "baseline": {
+        "text": "el resto del mundo. Los barcos que pasan",
+        "char_count": 40
+      },
+      "candidates": [
+        {
+          "text": "el resto del mundo. barcos que pasan",
+          "char_count": 36,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "dropped pronouns/articles"
+        },
+        {
+          "text": "el resto del mundo. Los barcos que pasan",
+          "char_count": 40,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 16,
+      "source": "through it carry a fifth of the world's",
+      "baseline": {
+        "text": "a través de ella lleva una quinta parte del mundo",
+        "char_count": 49
+      },
+      "candidates": [
+        {
+          "text": "a través de ella lleva quinta parte del mundo",
+          "char_count": 45,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "dropped pronouns/articles"
+        },
+        {
+          "text": "a través de ella lleva una quinta parte del m",
+          "char_count": 45,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "truncated to fit duration"
+        },
+        {
+          "text": "a través de ella lleva una quinta parte del mundo",
+          "char_count": 49,
+          "within_budget": false,
+          "shorter_than_baseline": true,
+          "valid": false,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": false
+    },
+    {
+      "index": 17,
+      "source": "oil and a significant amount of natural",
+      "baseline": {
+        "text": "aceite y una cantidad significativa de natural",
+        "char_count": 46
+      },
+      "candidates": [
+        {
+          "text": "aceite",
+          "char_count": 6,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "truncated to fit duration"
+        },
+        {
+          "text": "aceite y cantidad significativa de natural",
+          "char_count": 42,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "dropped pronouns/articles"
+        },
+        {
+          "text": "aceite y una cantidad significativa de natural",
+          "char_count": 46,
+          "within_budget": false,
+          "shorter_than_baseline": true,
+          "valid": false,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": false
+    },
+    {
+      "index": 18,
+      "source": "gas. Now, with that traffic nearly",
+      "baseline": {
+        "text": "gas. Ahora, con ese tráfico casi",
+        "char_count": 32
+      },
+      "candidates": [
+        {
+          "text": "gas. Ahora, con ese tráfico casi",
+          "char_count": 32,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 19,
+      "source": "stopped by the war in Iran, the world is",
+      "baseline": {
+        "text": "detenido por la guerra en Irán, el mundo es",
+        "char_count": 43
+      },
+      "candidates": [
+        {
+          "text": "detenido por guerra en Irán, mundo es",
+          "char_count": 37,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "dropped pronouns/articles"
+        },
+        {
+          "text": "detenido por la guerra en Irán, el mundo es",
+          "char_count": 43,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 20,
+      "source": "beginning to feel the impact from energy",
+      "baseline": {
+        "text": "empezar a sentir el impacto de la energía",
+        "char_count": 41
+      },
+      "candidates": [
+        {
+          "text": "empezar a sentir impacto de energía",
+          "char_count": 35,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "dropped pronouns/articles"
+        },
+        {
+          "text": "empezar a sentir el impacto de la energía",
+          "char_count": 41,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 21,
+      "source": "markets to national economies. You can",
+      "baseline": {
+        "text": "los mercados a las economías nacionales. Puedes",
+        "char_count": 47
+      },
+      "candidates": [
+        {
+          "text": "los mercados a las economías nacionales",
+          "char_count": 39,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "truncated to fit duration"
+        },
+        {
+          "text": "los mercados a economías nacionales. Puedes",
+          "char_count": 43,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "dropped pronouns/articles"
+        },
+        {
+          "text": "los mercados a las economías nacionales. Puedes",
+          "char_count": 47,
+          "within_budget": false,
+          "shorter_than_baseline": true,
+          "valid": false,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": false
+    },
+    {
+      "index": 22,
+      "source": "see that there's a lot of movement here,",
+      "baseline": {
+        "text": "ver que hay mucho movimiento aquí,",
+        "char_count": 34
+      },
+      "candidates": [
+        {
+          "text": "ver que hay mucho movimiento aquí,",
+          "char_count": 34,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 23,
+      "source": "right?",
+      "baseline": {
+        "text": "¿Verdad?",
+        "char_count": 8
+      },
+      "candidates": [
+        {
+          "text": "¿Verdad?",
+          "char_count": 8,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 24,
+      "source": ">> We spoke with Matt Smith, an oil market",
+      "baseline": {
+        "text": "> Hablamos con Matt Smith, un mercado petrolero",
+        "char_count": 47
+      },
+      "candidates": [
+        {
+          "text": "> Hablamos con Matt Smith",
+          "char_count": 25,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "truncated to fit duration"
+        },
+        {
+          "text": "> Hablamos con Matt Smith, mercado petrolero",
+          "char_count": 44,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "dropped pronouns/articles"
+        },
+        {
+          "text": "> Hablamos con Matt Smith, un mercado petrolero",
+          "char_count": 47,
+          "within_budget": false,
+          "shorter_than_baseline": true,
+          "valid": false,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": false
+    },
+    {
+      "index": 25,
+      "source": "analyst for Kepler, which tracks global",
+      "baseline": {
+        "text": "analista de Kepler, que rastrea globalmente",
+        "char_count": 43
+      },
+      "candidates": [
+        {
+          "text": "analista de Kepler, que rastrea globalmente",
+          "char_count": 43,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 26,
+      "source": "trade and shipping. He has been studying",
+      "baseline": {
+        "text": "comercio y envío. Ha estado estudiando.",
+        "char_count": 39
+      },
+      "candidates": [
+        {
+          "text": "comercio y envío. Ha estado estudiando.",
+          "char_count": 39,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 27,
+      "source": "ship movement in the straight of Hormuz.",
+      "baseline": {
+        "text": "movimiento de barcos en la recta de Hormuz.",
+        "char_count": 43
+      },
+      "candidates": [
+        {
+          "text": "movimiento de barcos en recta de Hormuz.",
+          "char_count": 40,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "dropped pronouns/articles"
+        },
+        {
+          "text": "movimiento de barcos en la recta de Hormuz.",
+          "char_count": 43,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 28,
+      "source": "Smith told us the region moves millions",
+      "baseline": {
+        "text": "Smith nos dijo que la región mueve millones",
+        "char_count": 43
+      },
+      "candidates": [
+        {
+          "text": "Smith nos dijo que región mueve millones",
+          "char_count": 40,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "dropped pronouns/articles"
+        },
+        {
+          "text": "Smith nos dijo que la región mueve millones",
+          "char_count": 43,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 29,
+      "source": "of barrels of oil a day. For most Gulf",
+      "baseline": {
+        "text": "de barriles de aceite al día. Para la mayoría del Golfo",
+        "char_count": 55
+      },
+      "candidates": [
+        {
+          "text": "de barriles de aceite al día",
+          "char_count": 28,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "truncated to fit duration"
+        },
+        {
+          "text": "de barriles de aceite al día. Para mayoría del Golfo",
+          "char_count": 52,
+          "within_budget": false,
+          "shorter_than_baseline": true,
+          "valid": false,
+          "brevity_rationale": "dropped pronouns/articles"
+        },
+        {
+          "text": "de barriles de aceite al día. Para la mayoría del Golfo",
+          "char_count": 55,
+          "within_budget": false,
+          "shorter_than_baseline": true,
+          "valid": false,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": false
+    },
+    {
+      "index": 30,
+      "source": "states, the only way for their oil to",
+      "baseline": {
+        "text": "estados, la única manera de su aceite para",
+        "char_count": 42
+      },
+      "candidates": [
+        {
+          "text": "estados, única manera de su aceite para",
+          "char_count": 39,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "dropped pronouns/articles"
+        },
+        {
+          "text": "estados, la única manera de su aceite para",
+          "char_count": 42,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 31,
+      "source": "reach the global market is through the",
+      "baseline": {
+        "text": "llegar al mercado mundial es a través de",
+        "char_count": 40
+      },
+      "candidates": [
+        {
+          "text": "llegar al mercado mundial es a través de",
+          "char_count": 40,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 32,
+      "source": "strait. So, these supplies are stuck",
+      "baseline": {
+        "text": "Estrecho. Entonces, estos suministros están atrapados",
+        "char_count": 53
+      },
+      "candidates": [
+        {
+          "text": "Estrecho",
+          "char_count": 8,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "truncated to fit duration"
+        },
+        {
+          "text": "Estrecho. Entonces, estos suministros están atrapados",
+          "char_count": 53,
+          "within_budget": false,
+          "shorter_than_baseline": true,
+          "valid": false,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": false
+    },
+    {
+      "index": 33,
+      "source": "because of the conflict. But Saudi",
+      "baseline": {
+        "text": "por el conflicto. Pero saudí",
+        "char_count": 28
+      },
+      "candidates": [
+        {
+          "text": "por conflicto. Pero saudí",
+          "char_count": 25,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "dropped pronouns/articles"
+        },
+        {
+          "text": "por el conflicto. Pero saudí",
+          "char_count": 28,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 34,
+      "source": "Arabia benefits from decades of good",
+      "baseline": {
+        "text": "Arabia se beneficia de décadas de bien",
+        "char_count": 38
+      },
+      "candidates": [
+        {
+          "text": "Arabia se beneficia de décadas de bien",
+          "char_count": 38,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 35,
+      "source": "planning.",
+      "baseline": {
+        "text": "planificación.",
+        "char_count": 14
+      },
+      "candidates": [
+        {
+          "text": "planificación.",
+          "char_count": 14,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 36,
+      "source": ">> Saudi Arabia is a relative winner from",
+      "baseline": {
+        "text": "> Arabia Saudita es un relativo ganador de",
+        "char_count": 42
+      },
+      "candidates": [
+        {
+          "text": "> Arabia Saudita es relativo ganador de",
+          "char_count": 39,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "dropped pronouns/articles"
+        },
+        {
+          "text": "> Arabia Saudita es un relativo ganador de",
+          "char_count": 42,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 37,
+      "source": "this situation in that it has a pipeline",
+      "baseline": {
+        "text": "esta situación en que tiene un oleoducto",
+        "char_count": 40
+      },
+      "candidates": [
+        {
+          "text": "esta situación en que tiene oleoducto",
+          "char_count": 37,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "dropped pronouns/articles"
+        },
+        {
+          "text": "esta situación en que tiene un oleoducto",
+          "char_count": 40,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 38,
+      "source": "called the East West pipeline that was",
+      "baseline": {
+        "text": "llamado el oleoducto Este Oeste que fue",
+        "char_count": 39
+      },
+      "candidates": [
+        {
+          "text": "llamado oleoducto Este Oeste que fue",
+          "char_count": 36,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "dropped pronouns/articles"
+        },
+        {
+          "text": "llamado el oleoducto Este Oeste que fue",
+          "char_count": 39,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 39,
+      "source": "built for exactly this reason. It was",
+      "baseline": {
+        "text": "construido por esta razón. Era",
+        "char_count": 30
+      },
+      "candidates": [
+        {
+          "text": "construido por esta razón. Era",
+          "char_count": 30,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 40,
+      "source": "concerned about the straight of Hormuz",
+      "baseline": {
+        "text": "preocupado por la recta de Hormuz",
+        "char_count": 33
+      },
+      "candidates": [
+        {
+          "text": "preocupado por recta de Hormuz",
+          "char_count": 30,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "dropped pronouns/articles"
+        },
+        {
+          "text": "preocupado por la recta de Hormuz",
+          "char_count": 33,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 41,
+      "source": "being uh this choke point and so that",
+      "baseline": {
+        "text": "siendo este punto de ahogamiento y así",
+        "char_count": 38
+      },
+      "candidates": [
+        {
+          "text": "siendo este punto de ahogamiento y así",
+          "char_count": 38,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 42,
+      "source": "pipe goes across to the Red Sea to Yanu",
+      "baseline": {
+        "text": "tubo va hacia el Mar Rojo a Yanu",
+        "char_count": 32
+      },
+      "candidates": [
+        {
+          "text": "tubo va hacia Mar Rojo a Yanu",
+          "char_count": 29,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "dropped pronouns/articles"
+        },
+        {
+          "text": "tubo va hacia el Mar Rojo a Yanu",
+          "char_count": 32,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 43,
+      "source": "and we're starting to see exports",
+      "baseline": {
+        "text": "y estamos empezando a ver las exportaciones",
+        "char_count": 43
+      },
+      "candidates": [
+        {
+          "text": "y estamos empezando a ver exportaciones",
+          "char_count": 39,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "dropped pronouns/articles"
+        },
+        {
+          "text": "y estamos empezando a ver las exportaciones",
+          "char_count": 43,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 44,
+      "source": "picking up from there instead. So",
+      "baseline": {
+        "text": "en vez de eso. Así que...",
+        "char_count": 25
+      },
+      "candidates": [
+        {
+          "text": "en vez de eso. Así que...",
+          "char_count": 25,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 45,
+      "source": "essentially Saudi Arabia is able to",
+      "baseline": {
+        "text": "esencialmente Arabia Saudita es capaz de",
+        "char_count": 40
+      },
+      "candidates": [
+        {
+          "text": "esencialmente Arabia Saudita es capaz de",
+          "char_count": 40,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 46,
+      "source": "reroute its crude to be able to load in",
+      "baseline": {
+        "text": "redirigir su crudo para poder cargar en",
+        "char_count": 39
+      },
+      "candidates": [
+        {
+          "text": "redirigir su crudo para poder cargar en",
+          "char_count": 39,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 47,
+      "source": "the Red Sea whereas the likes of Iraq,",
+      "baseline": {
+        "text": "el Mar Rojo mientras que los similares de Iraq,",
+        "char_count": 47
+      },
+      "candidates": [
+        {
+          "text": "el Mar Rojo mientras que similares de Iraq,",
+          "char_count": 43,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "dropped pronouns/articles"
+        },
+        {
+          "text": "el Mar Rojo mientras que los similares de Ira",
+          "char_count": 45,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "truncated to fit duration"
+        },
+        {
+          "text": "el Mar Rojo mientras que los similares de Iraq,",
+          "char_count": 47,
+          "within_budget": false,
+          "shorter_than_baseline": true,
+          "valid": false,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": false
+    },
+    {
+      "index": 48,
+      "source": "Kuwait and Qatar don't have the ability",
+      "baseline": {
+        "text": "Kuwait y Qatar no tienen la capacidad",
+        "char_count": 37
+      },
+      "candidates": [
+        {
+          "text": "Kuwait y Qatar no tienen capacidad",
+          "char_count": 34,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "dropped pronouns/articles"
+        },
+        {
+          "text": "Kuwait y Qatar no tienen la capacidad",
+          "char_count": 37,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 49,
+      "source": "to do that. So they're having to shut in",
+      "baseline": {
+        "text": "para hacer eso. Así que tienen que cerrarse.",
+        "char_count": 44
+      },
+      "candidates": [
+        {
+          "text": "para hacer eso. Así que tienen que cerrarse.",
+          "char_count": 44,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 50,
+      "source": "production. Not that Saudi Arabia is to",
+      "baseline": {
+        "text": "producción. No es que Arabia Saudita sea",
+        "char_count": 40
+      },
+      "candidates": [
+        {
+          "text": "producción. No es que Arabia Saudita sea",
+          "char_count": 40,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 51,
+      "source": "able to completely move all of its",
+      "baseline": {
+        "text": "capaz de mover completamente todo su",
+        "char_count": 36
+      },
+      "candidates": [
+        {
+          "text": "capaz de mover completamente todo su",
+          "char_count": 36,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 52,
+      "source": "barrels and export them from the other",
+      "baseline": {
+        "text": "y exportarlos del otro",
+        "char_count": 22
+      },
+      "candidates": [
+        {
+          "text": "y exportarlos del otro",
+          "char_count": 22,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 53,
+      "source": "side. Uh but it it can do nearly 4",
+      "baseline": {
+        "text": "Del lado. Pero puede hacer casi 4",
+        "char_count": 33
+      },
+      "candidates": [
+        {
+          "text": "Del lado. Pero puede hacer casi 4",
+          "char_count": 33,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 54,
+      "source": "million barrels a day.",
+      "baseline": {
+        "text": "millones de barriles al día.",
+        "char_count": 28
+      },
+      "candidates": [
+        {
+          "text": "millones de barriles al día.",
+          "char_count": 28,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 55,
+      "source": ">> How would you characterize what's",
+      "baseline": {
+        "text": "> ¿Cómo caracterizarías lo que es?",
+        "char_count": 34
+      },
+      "candidates": [
+        {
+          "text": "> ¿Cómo caracterizarías lo que es?",
+          "char_count": 34,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 56,
+      "source": "happening in the street of Hormuz today?",
+      "baseline": {
+        "text": "¿en la calle de Hormuz?",
+        "char_count": 23
+      },
+      "candidates": [
+        {
+          "text": "¿en calle de Hormuz?",
+          "char_count": 20,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "dropped pronouns/articles"
+        },
+        {
+          "text": "¿en la calle de Hormuz?",
+          "char_count": 23,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 57,
+      "source": "Well, we are seeing a collapse of a",
+      "baseline": {
+        "text": "Bueno, estamos viendo un colapso de un",
+        "char_count": 38
+      },
+      "candidates": [
+        {
+          "text": "Bueno, estamos viendo colapso de",
+          "char_count": 32,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "dropped pronouns/articles"
+        },
+        {
+          "text": "Bueno, estamos viendo un colapso de un",
+          "char_count": 38,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 58,
+      "source": "keystone assumption in economics and",
+      "baseline": {
+        "text": "suposición clave en la economía y",
+        "char_count": 33
+      },
+      "candidates": [
+        {
+          "text": "suposición clave en economía y",
+          "char_count": 30,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "dropped pronouns/articles"
+        },
+        {
+          "text": "suposición clave en la economía y",
+          "char_count": 33,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 59,
+      "source": "energy markets. And if Hormuz is shut",
+      "baseline": {
+        "text": "mercados energéticos. Y si Hormuz está cerrado",
+        "char_count": 46
+      },
+      "candidates": [
+        {
+          "text": "mercados energéticos",
+          "char_count": 20,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "truncated to fit duration"
+        },
+        {
+          "text": "mercados energéticos. Y si Hormuz está cerrado",
+          "char_count": 46,
+          "within_budget": false,
+          "shorter_than_baseline": true,
+          "valid": false,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": false
+    },
+    {
+      "index": 60,
+      "source": "for a month, one of the most important",
+      "baseline": {
+        "text": "por un mes, uno de los más importantes",
+        "char_count": 38
+      },
+      "candidates": [
+        {
+          "text": "por mes, uno de más importantes",
+          "char_count": 31,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "dropped pronouns/articles"
+        },
+        {
+          "text": "por un mes, uno de los más importantes",
+          "char_count": 38,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 61,
+      "source": "bedrock assumptions and how the economy",
+      "baseline": {
+        "text": "Hipótesis básicas y cómo la economía",
+        "char_count": 36
+      },
+      "candidates": [
+        {
+          "text": "Hipótesis básicas y cómo economía",
+          "char_count": 33,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "dropped pronouns/articles"
+        },
+        {
+          "text": "Hipótesis básicas y cómo la economía",
+          "char_count": 36,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 62,
+      "source": "works, the global economy works and",
+      "baseline": {
+        "text": "trabajo, la economía global trabaja y",
+        "char_count": 37
+      },
+      "candidates": [
+        {
+          "text": "trabajo, economía global trabaja y",
+          "char_count": 34,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "dropped pronouns/articles"
+        },
+        {
+          "text": "trabajo, la economía global trabaja y",
+          "char_count": 37,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 63,
+      "source": "about security will have collapsed.",
+      "baseline": {
+        "text": "sobre seguridad habrá colapsado.",
+        "char_count": 32
+      },
+      "candidates": [
+        {
+          "text": "sobre seguridad habrá colapsado.",
+          "char_count": 32,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 64,
+      "source": ">> Bob McN was an energy adviser to",
+      "baseline": {
+        "text": "> Bob McN era un asesor de energía",
+        "char_count": 34
+      },
+      "candidates": [
+        {
+          "text": "> Bob McN era asesor de energía",
+          "char_count": 31,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "dropped pronouns/articles"
+        },
+        {
+          "text": "> Bob McN era un asesor de energía",
+          "char_count": 34,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 65,
+      "source": "President George W. Bush during the Iraq",
+      "baseline": {
+        "text": "Presidente George W. Bush durante el Iraq",
+        "char_count": 41
+      },
+      "candidates": [
+        {
+          "text": "Presidente George W. Bush durante Iraq",
+          "char_count": 38,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "dropped pronouns/articles"
+        },
+        {
+          "text": "Presidente George W. Bush durante el Iraq",
+          "char_count": 41,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 66,
+      "source": "war, who now advises clients on oil and",
+      "baseline": {
+        "text": "la guerra, que ahora asesora a clientes en petróleo y",
+        "char_count": 53
+      },
+      "candidates": [
+        {
+          "text": "la guerra",
+          "char_count": 9,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "truncated to fit duration"
+        },
+        {
+          "text": "la guerra, que ahora asesora a clientes en petróleo y",
+          "char_count": 53,
+          "within_budget": false,
+          "shorter_than_baseline": true,
+          "valid": false,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": false
+    },
+    {
+      "index": 67,
+      "source": "gas markets. He told us the disruption",
+      "baseline": {
+        "text": "mercados de gas. Nos dijo la interrupción.",
+        "char_count": 42
+      },
+      "candidates": [
+        {
+          "text": "mercados de gas. Nos dijo interrupción.",
+          "char_count": 39,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "dropped pronouns/articles"
+        },
+        {
+          "text": "mercados de gas. Nos dijo la interrupción.",
+          "char_count": 42,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 68,
+      "source": "is already having global impacts,",
+      "baseline": {
+        "text": "ya está teniendo impactos globales,",
+        "char_count": 35
+      },
+      "candidates": [
+        {
+          "text": "ya está teniendo impactos globales,",
+          "char_count": 35,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 69,
+      "source": "including in Russia.",
+      "baseline": {
+        "text": "incluido en Rusia.",
+        "char_count": 18
+      },
+      "candidates": [
+        {
+          "text": "incluido en Rusia.",
+          "char_count": 18,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 70,
+      "source": ">> This conflict and the oil price increase",
+      "baseline": {
+        "text": "> Este conflicto y el aumento del precio del petróleo",
+        "char_count": 53
+      },
+      "candidates": [
+        {
+          "text": "> Este conflicto",
+          "char_count": 16,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "truncated to fit duration"
+        },
+        {
+          "text": "> Este conflicto y aumento del precio del petróleo",
+          "char_count": 50,
+          "within_budget": false,
+          "shorter_than_baseline": true,
+          "valid": false,
+          "brevity_rationale": "dropped pronouns/articles"
+        },
+        {
+          "text": "> Este conflicto y el aumento del precio del petróleo",
+          "char_count": 53,
+          "within_budget": false,
+          "shorter_than_baseline": true,
+          "valid": false,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": false
+    },
+    {
+      "index": 71,
+      "source": "has done two things to help Putin. One,",
+      "baseline": {
+        "text": "ha hecho dos cosas para ayudar a Putin. Uno,",
+        "char_count": 44
+      },
+      "candidates": [
+        {
+          "text": "ha hecho dos cosas para ayudar a Putin. Uno,",
+          "char_count": 44,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 72,
+      "source": "it's lifted the overall price of crude",
+      "baseline": {
+        "text": "se ha levantado el precio total de crudo",
+        "char_count": 40
+      },
+      "candidates": [
+        {
+          "text": "se ha levantado precio total de crudo",
+          "char_count": 37,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "dropped pronouns/articles"
+        },
+        {
+          "text": "se ha levantado el precio total de crudo",
+          "char_count": 40,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 73,
+      "source": "oil. And secondly, it's eliminated that",
+      "baseline": {
+        "text": "aceite. Y segundo, se elimina que",
+        "char_count": 33
+      },
+      "candidates": [
+        {
+          "text": "aceite. Y segundo, se elimina que",
+          "char_count": 33,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 74,
+      "source": "discount, that penalty price that he had",
+      "baseline": {
+        "text": "descuento, ese precio de la pena que tenía",
+        "char_count": 42
+      },
+      "candidates": [
+        {
+          "text": "descuento, ese precio de pena que tenía",
+          "char_count": 39,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "dropped pronouns/articles"
+        },
+        {
+          "text": "descuento, ese precio de la pena que tenía",
+          "char_count": 42,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 75,
+      "source": "to pay. Now everybody wants his oil. And",
+      "baseline": {
+        "text": "para pagar. Ahora todos quieren su aceite. Y",
+        "char_count": 44
+      },
+      "candidates": [
+        {
+          "text": "para pagar. Ahora todos quieren su aceite. Y",
+          "char_count": 44,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 76,
+      "source": "yeah, Christmas came early for Putin. So",
+      "baseline": {
+        "text": "Sí, la Navidad llegó temprano para Putin. Así que...",
+        "char_count": 52
+      },
+      "candidates": [
+        {
+          "text": "Sí, Navidad llegó temprano para Putin",
+          "char_count": 37,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "truncated to fit duration"
+        },
+        {
+          "text": "Sí, la Navidad llegó temprano para Putin",
+          "char_count": 40,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "truncated to fit duration"
+        },
+        {
+          "text": "Sí, Navidad llegó temprano para Putin. Así que...",
+          "char_count": 49,
+          "within_budget": false,
+          "shorter_than_baseline": true,
+          "valid": false,
+          "brevity_rationale": "dropped pronouns/articles"
+        },
+        {
+          "text": "Sí, la Navidad llegó temprano para Putin. Así que...",
+          "char_count": 52,
+          "within_budget": false,
+          "shorter_than_baseline": true,
+          "valid": false,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": false
+    },
+    {
+      "index": 77,
+      "source": "Putin may be benefiting temporarily from",
+      "baseline": {
+        "text": "Putin puede beneficiarse temporalmente de",
+        "char_count": 41
+      },
+      "candidates": [
+        {
+          "text": "Putin puede beneficiarse temporalmente de",
+          "char_count": 41,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 78,
+      "source": "a budget windfall, but long-term if Iran",
+      "baseline": {
+        "text": "un déficit presupuestario, pero a largo plazo si Irán",
+        "char_count": 53
+      },
+      "candidates": [
+        {
+          "text": "un déficit presupuestario",
+          "char_count": 25,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "truncated to fit duration"
+        },
+        {
+          "text": "un déficit presupuestario, pero a largo plazo si Irán",
+          "char_count": 53,
+          "within_budget": false,
+          "shorter_than_baseline": true,
+          "valid": false,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": false
+    },
+    {
+      "index": 79,
+      "source": "uh stops being the world's top sponsor",
+      "baseline": {
+        "text": "Deja de ser el mejor patrocinador del mundo",
+        "char_count": 43
+      },
+      "candidates": [
+        {
+          "text": "Deja de ser mejor patrocinador del mundo",
+          "char_count": 40,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "dropped pronouns/articles"
+        },
+        {
+          "text": "Deja de ser el mejor patrocinador del mundo",
+          "char_count": 43,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 80,
+      "source": "as terror and even uh becomes a friend",
+      "baseline": {
+        "text": "como el terror e incluso se convierte en un amigo",
+        "char_count": 49
+      },
+      "candidates": [
+        {
+          "text": "como terror e incluso se convierte en amigo",
+          "char_count": 43,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "dropped pronouns/articles"
+        },
+        {
+          "text": "como el terror e incluso se convierte en un a",
+          "char_count": 45,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "truncated to fit duration"
+        },
+        {
+          "text": "como el terror e incluso se convierte en un amigo",
+          "char_count": 49,
+          "within_budget": false,
+          "shorter_than_baseline": true,
+          "valid": false,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": false
+    },
+    {
+      "index": 81,
+      "source": "of the United States and Israel and",
+      "baseline": {
+        "text": "de los Estados Unidos e Israel",
+        "char_count": 30
+      },
+      "candidates": [
+        {
+          "text": "de Estados Unidos e Israel",
+          "char_count": 26,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "dropped pronouns/articles"
+        },
+        {
+          "text": "de los Estados Unidos e Israel",
+          "char_count": 30,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 82,
+      "source": "other countries, which I I hope and",
+      "baseline": {
+        "text": "otros países, que espero y",
+        "char_count": 26
+      },
+      "candidates": [
+        {
+          "text": "otros países, que espero y",
+          "char_count": 26,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 83,
+      "source": "expect eventually, um that's a bad day",
+      "baseline": {
+        "text": "espera eventualmente, um que es un mal día",
+        "char_count": 42
+      },
+      "candidates": [
+        {
+          "text": "espera eventualmente, um que es mal día",
+          "char_count": 39,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "dropped pronouns/articles"
+        },
+        {
+          "text": "espera eventualmente, um que es un mal día",
+          "char_count": 42,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 84,
+      "source": "for Russia. Very bad day for for Putin.",
+      "baseline": {
+        "text": "para Rusia. Un mal día para Putin.",
+        "char_count": 34
+      },
+      "candidates": [
+        {
+          "text": "para Rusia. mal día para Putin.",
+          "char_count": 31,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "dropped pronouns/articles"
+        },
+        {
+          "text": "para Rusia. Un mal día para Putin.",
+          "char_count": 34,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 85,
+      "source": "But today",
+      "baseline": {
+        "text": "Pero hoy",
+        "char_count": 8
+      },
+      "candidates": [
+        {
+          "text": "Pero hoy",
+          "char_count": 8,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 86,
+      "source": "uh as things stand in the street of",
+      "baseline": {
+        "text": "Como las cosas están en la calle",
+        "char_count": 32
+      },
+      "candidates": [
+        {
+          "text": "Como cosas están en calle",
+          "char_count": 25,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "dropped pronouns/articles"
+        },
+        {
+          "text": "Como las cosas están en la calle",
+          "char_count": 32,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 87,
+      "source": "Hormuz, I've seen it said that Russia is",
+      "baseline": {
+        "text": "Hormuz, lo he visto decir que Rusia es",
+        "char_count": 38
+      },
+      "candidates": [
+        {
+          "text": "Hormuz, lo he visto decir que Rusia es",
+          "char_count": 38,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 88,
+      "source": "the clear winner in this war.",
+      "baseline": {
+        "text": "el ganador claro en esta guerra.",
+        "char_count": 32
+      },
+      "candidates": [
+        {
+          "text": "el ganador claro en esta guerra.",
+          "char_count": 32,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 89,
+      "source": ">> Putin, no question, is benefiting from",
+      "baseline": {
+        "text": "> Putin, ninguna pregunta, se está beneficiando",
+        "char_count": 47
+      },
+      "candidates": [
+        {
+          "text": "> Putin",
+          "char_count": 7,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "truncated to fit duration"
+        },
+        {
+          "text": "> Putin, ninguna pregunta, se está beneficiando",
+          "char_count": 47,
+          "within_budget": false,
+          "shorter_than_baseline": true,
+          "valid": false,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": false
+    },
+    {
+      "index": 90,
+      "source": "much greater revenue right now. Y",
+      "baseline": {
+        "text": "mucho más ingresos ahora mismo. Y",
+        "char_count": 33
+      },
+      "candidates": [
+        {
+          "text": "mucho más ingresos ahora mismo. Y",
+          "char_count": 33,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 91,
+      "source": ">> I want to ask you about China. About",
+      "baseline": {
+        "text": "> Quiero preguntarte por China. Acerca de",
+        "char_count": 41
+      },
+      "candidates": [
+        {
+          "text": "> Quiero preguntarte por China. Acerca de",
+          "char_count": 41,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 92,
+      "source": "half of China's imported oil comes",
+      "baseline": {
+        "text": "la mitad del aceite importado de China viene",
+        "char_count": 44
+      },
+      "candidates": [
+        {
+          "text": "la mitad del aceite importado de China viene",
+          "char_count": 44,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 93,
+      "source": "through the strait. What does this mean",
+      "baseline": {
+        "text": "a través del estrecho. ¿Qué significa esto?",
+        "char_count": 43
+      },
+      "candidates": [
+        {
+          "text": "a través del estrecho. ¿Qué significa esto?",
+          "char_count": 43,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 94,
+      "source": "for their economy?",
+      "baseline": {
+        "text": "por su economía?",
+        "char_count": 16
+      },
+      "candidates": [
+        {
+          "text": "por su economía?",
+          "char_count": 16,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 95,
+      "source": ">> This is a a real gut punch for their",
+      "baseline": {
+        "text": "> Esto es un verdadero golpe de estómago para su",
+        "char_count": 48
+      },
+      "candidates": [
+        {
+          "text": "> Esto es verdadero golpe de estómago para su",
+          "char_count": 45,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "dropped pronouns/articles"
+        },
+        {
+          "text": "> Esto es un verdadero golpe de estómago para",
+          "char_count": 45,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "truncated to fit duration"
+        },
+        {
+          "text": "> Esto es un verdadero golpe de estómago para su",
+          "char_count": 48,
+          "within_budget": false,
+          "shorter_than_baseline": true,
+          "valid": false,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": false
+    },
+    {
+      "index": 96,
+      "source": "economy. China was getting a sweetheart",
+      "baseline": {
+        "text": "economía. China estaba recibiendo un encanto",
+        "char_count": 44
+      },
+      "candidates": [
+        {
+          "text": "economía. China estaba recibiendo encanto",
+          "char_count": 41,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "dropped pronouns/articles"
+        },
+        {
+          "text": "economía. China estaba recibiendo un encanto",
+          "char_count": 44,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 97,
+      "source": "deal from Iran and uh and depending",
+      "baseline": {
+        "text": "trato de Irán y uh y dependiendo",
+        "char_count": 32
+      },
+      "candidates": [
+        {
+          "text": "trato de Irán y uh y dependiendo",
+          "char_count": 32,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 98,
+      "source": "heavily on flow from Hormuz. The thought",
+      "baseline": {
+        "text": "fuertemente en el flujo de Hormuz. El pensamiento",
+        "char_count": 49
+      },
+      "candidates": [
+        {
+          "text": "fuertemente en el flujo de Hormuz",
+          "char_count": 33,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "truncated to fit duration"
+        },
+        {
+          "text": "fuertemente en flujo de Hormuz. pensamiento",
+          "char_count": 43,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "dropped pronouns/articles"
+        },
+        {
+          "text": "fuertemente en el flujo de Hormuz. El pensamiento",
+          "char_count": 49,
+          "within_budget": false,
+          "shorter_than_baseline": true,
+          "valid": false,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": false
+    },
+    {
+      "index": 99,
+      "source": "that that could be disrupted for a",
+      "baseline": {
+        "text": "que podría ser perturbado por un",
+        "char_count": 32
+      },
+      "candidates": [
+        {
+          "text": "que podría ser perturbado por",
+          "char_count": 29,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "dropped pronouns/articles"
+        },
+        {
+          "text": "que podría ser perturbado por un",
+          "char_count": 32,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 100,
+      "source": "prolonged period is devastating for the",
+      "baseline": {
+        "text": "el período prolongado es devastador para el",
+        "char_count": 43
+      },
+      "candidates": [
+        {
+          "text": "el período prolongado es devastador para",
+          "char_count": 40,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "dropped pronouns/articles"
+        },
+        {
+          "text": "el período prolongado es devastador para el",
+          "char_count": 43,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 101,
+      "source": "Chinese economy. Now, they have",
+      "baseline": {
+        "text": "Economía china. Ahora, tienen",
+        "char_count": 29
+      },
+      "candidates": [
+        {
+          "text": "Economía china. Ahora, tienen",
+          "char_count": 29,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 102,
+      "source": "stockpiled a lot of oil and so they're",
+      "baseline": {
+        "text": "almacenado un montón de petróleo y así que están",
+        "char_count": 48
+      },
+      "candidates": [
+        {
+          "text": "almacenado un montón de petróleo",
+          "char_count": 32,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "truncated to fit duration"
+        },
+        {
+          "text": "almacenado montón de petróleo y así que están",
+          "char_count": 45,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "dropped pronouns/articles"
+        },
+        {
+          "text": "almacenado un montón de petróleo y así que están",
+          "char_count": 48,
+          "within_budget": false,
+          "shorter_than_baseline": true,
+          "valid": false,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": false
+    },
+    {
+      "index": 103,
+      "source": "pretty well supplied in terms of",
+      "baseline": {
+        "text": "bastante bien suministrado en términos de",
+        "char_count": 41
+      },
+      "candidates": [
+        {
+          "text": "bastante bien suministrado en términos de",
+          "char_count": 41,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 104,
+      "source": "physical supply, but the economic cost",
+      "baseline": {
+        "text": "suministro físico, pero el costo económico",
+        "char_count": 42
+      },
+      "candidates": [
+        {
+          "text": "suministro físico, pero costo económico",
+          "char_count": 39,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "dropped pronouns/articles"
+        },
+        {
+          "text": "suministro físico, pero el costo económico",
+          "char_count": 42,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 105,
+      "source": "will be quite sharp to them.",
+      "baseline": {
+        "text": "Será muy fuerte para ellos.",
+        "char_count": 27
+      },
+      "candidates": [
+        {
+          "text": "Será fuerte para ellos.",
+          "char_count": 23,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "removed fillers"
+        },
+        {
+          "text": "Será muy fuerte para ellos.",
+          "char_count": 27,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 106,
+      "source": ">> Even so, China is still benefiting from",
+      "baseline": {
+        "text": "> Aun así, China sigue beneficiándose",
+        "char_count": 37
+      },
+      "candidates": [
+        {
+          "text": "> Aun así, China sigue beneficiándose",
+          "char_count": 37,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 107,
+      "source": "its relationship with Iran. Matt Smith",
+      "baseline": {
+        "text": "su relación con Irán. Matt Smith",
+        "char_count": 32
+      },
+      "candidates": [
+        {
+          "text": "su relación con Irán. Matt Smith",
+          "char_count": 32,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 108,
+      "source": "at Kepler told us that Iran has",
+      "baseline": {
+        "text": "en Kepler nos dijo que Irán tiene",
+        "char_count": 33
+      },
+      "candidates": [
+        {
+          "text": "en Kepler nos dijo que Irán tiene",
+          "char_count": 33,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 109,
+      "source": "continued to sneak oil out of the",
+      "baseline": {
+        "text": "siguió escabullindo el petróleo del",
+        "char_count": 35
+      },
+      "candidates": [
+        {
+          "text": "siguió escabullindo petróleo del",
+          "char_count": 32,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "dropped pronouns/articles"
+        },
+        {
+          "text": "siguió escabullindo el petróleo del",
+          "char_count": 35,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 110,
+      "source": "straight. He says they've done it by",
+      "baseline": {
+        "text": "derecho. Dice que lo han hecho.",
+        "char_count": 31
+      },
+      "candidates": [
+        {
+          "text": "derecho. Dice que lo han hecho.",
+          "char_count": 31,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 111,
+      "source": "turning off their ship's transponders",
+      "baseline": {
+        "text": "apagando los transpondedores de su nave",
+        "char_count": 39
+      },
+      "candidates": [
+        {
+          "text": "apagando transpondedores de su nave",
+          "char_count": 35,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "dropped pronouns/articles"
+        },
+        {
+          "text": "apagando los transpondedores de su nave",
+          "char_count": 39,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 112,
+      "source": "that show their location, passing",
+      "baseline": {
+        "text": "que muestran su ubicación, pasando",
+        "char_count": 34
+      },
+      "candidates": [
+        {
+          "text": "que muestran su ubicación, pasando",
+          "char_count": 34,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 113,
+      "source": "through the straight undetected and",
+      "baseline": {
+        "text": "a través de la recta sin detectar y",
+        "char_count": 35
+      },
+      "candidates": [
+        {
+          "text": "a través de recta sin detectar y",
+          "char_count": 32,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "dropped pronouns/articles"
+        },
+        {
+          "text": "a través de la recta sin detectar y",
+          "char_count": 35,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 114,
+      "source": "sending most of the crude oil on board",
+      "baseline": {
+        "text": "enviar la mayor parte del crudo a bordo",
+        "char_count": 39
+      },
+      "candidates": [
+        {
+          "text": "enviar mayor parte del crudo a bordo",
+          "char_count": 36,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "dropped pronouns/articles"
+        },
+        {
+          "text": "enviar la mayor parte del crudo a bordo",
+          "char_count": 39,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 115,
+      "source": "straight to China. That oil is going to",
+      "baseline": {
+        "text": "directamente a China. Ese aceite va a",
+        "char_count": 37
+      },
+      "candidates": [
+        {
+          "text": "directamente a China. Ese aceite va a",
+          "char_count": 37,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 116,
+      "source": "China.",
+      "baseline": {
+        "text": "China.",
+        "char_count": 6
+      },
+      "candidates": [
+        {
+          "text": "China.",
+          "char_count": 6,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 117,
+      "source": ">> Yeah.",
+      "baseline": {
+        "text": "> Sí.",
+        "char_count": 5
+      },
+      "candidates": [
+        {
+          "text": "> Sí.",
+          "char_count": 5,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 118,
+      "source": ">> Let's talk about India. India had been",
+      "baseline": {
+        "text": "> Hablemos de India. India",
+        "char_count": 26
+      },
+      "candidates": [
+        {
+          "text": "> Hablemos de India. India",
+          "char_count": 26,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 119,
+      "source": "under significant pressure from the US",
+      "baseline": {
+        "text": "bajo una presión significativa de EE.UU.",
+        "char_count": 40
+      },
+      "candidates": [
+        {
+          "text": "bajo presión significativa de EE.UU.",
+          "char_count": 36,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "dropped pronouns/articles"
+        },
+        {
+          "text": "bajo una presión significativa de EE.UU.",
+          "char_count": 40,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 120,
+      "source": "to stop buying Russian oil. What's the",
+      "baseline": {
+        "text": "para dejar de comprar petróleo ruso. ¿Qué pasa?",
+        "char_count": 47
+      },
+      "candidates": [
+        {
+          "text": "para dejar de comprar petróleo ruso",
+          "char_count": 35,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "truncated to fit duration"
+        },
+        {
+          "text": "para dejar de comprar petróleo ruso. ¿Qué pasa?",
+          "char_count": 47,
+          "within_budget": false,
+          "shorter_than_baseline": true,
+          "valid": false,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": false
+    },
+    {
+      "index": 121,
+      "source": "case now? India overall is hugely",
+      "baseline": {
+        "text": "¿El caso ahora? India en general es enorme",
+        "char_count": 42
+      },
+      "candidates": [
+        {
+          "text": "¿El caso ahora? India en general es enorme",
+          "char_count": 42,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 122,
+      "source": "dependent on uh hormuse flows. It does",
+      "baseline": {
+        "text": "depende de flujos de hormusa. Lo hace",
+        "char_count": 37
+      },
+      "candidates": [
+        {
+          "text": "depende de flujos de hormusa. Lo hace",
+          "char_count": 37,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 123,
+      "source": "not have extensive strategic stocks like",
+      "baseline": {
+        "text": "no tienen amplias acciones estratégicas como",
+        "char_count": 44
+      },
+      "candidates": [
+        {
+          "text": "no tienen amplias acciones estratégicas como",
+          "char_count": 44,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 124,
+      "source": "China does like the United States does.",
+      "baseline": {
+        "text": "A China le gustan los Estados Unidos.",
+        "char_count": 37
+      },
+      "candidates": [
+        {
+          "text": "A China le gustan Estados Unidos.",
+          "char_count": 33,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "dropped pronouns/articles"
+        },
+        {
+          "text": "A China le gustan los Estados Unidos.",
+          "char_count": 37,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 125,
+      "source": "India also requires liqufied petroleum",
+      "baseline": {
+        "text": "India también requiere petróleo licuado",
+        "char_count": 39
+      },
+      "candidates": [
+        {
+          "text": "India también requiere petróleo licuado",
+          "char_count": 39,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 126,
+      "source": "gas. It's cooking fuel. Families cook",
+      "baseline": {
+        "text": "gas. Es combustible para cocinar. Las familias cocinan",
+        "char_count": 54
+      },
+      "candidates": [
+        {
+          "text": "gas",
+          "char_count": 3,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "truncated to fit duration"
+        },
+        {
+          "text": "gas. Es combustible para cocinar. familias cocinan",
+          "char_count": 50,
+          "within_budget": false,
+          "shorter_than_baseline": true,
+          "valid": false,
+          "brevity_rationale": "dropped pronouns/articles"
+        },
+        {
+          "text": "gas. Es combustible para cocinar. Las familias cocinan",
+          "char_count": 54,
+          "within_budget": false,
+          "shorter_than_baseline": true,
+          "valid": false,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": false
+    },
+    {
+      "index": 127,
+      "source": "with LPG liqufied petroleum gas that",
+      "baseline": {
+        "text": "con gas licuado de GLP",
+        "char_count": 22
+      },
+      "candidates": [
+        {
+          "text": "con gas licuado de GLP",
+          "char_count": 22,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 128,
+      "source": "comes from Hormuz and they don't have",
+      "baseline": {
+        "text": "viene de Hormuz y no tienen",
+        "char_count": 27
+      },
+      "candidates": [
+        {
+          "text": "viene de Hormuz y no tienen",
+          "char_count": 27,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 129,
+      "source": "big stock piles. So for India this is an",
+      "baseline": {
+        "text": "grandes montones. Así que para India esto es un",
+        "char_count": 47
+      },
+      "candidates": [
+        {
+          "text": "grandes montones",
+          "char_count": 16,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "truncated to fit duration"
+        },
+        {
+          "text": "grandes montones. Así que para India esto es",
+          "char_count": 44,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "dropped pronouns/articles"
+        },
+        {
+          "text": "grandes montones. Así que para India esto es un",
+          "char_count": 47,
+          "within_budget": false,
+          "shorter_than_baseline": true,
+          "valid": false,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": false
+    },
+    {
+      "index": 130,
+      "source": "acute crisis.",
+      "baseline": {
+        "text": "Crisis aguda.",
+        "char_count": 13
+      },
+      "candidates": [
+        {
+          "text": "Crisis aguda.",
+          "char_count": 13,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 131,
+      "source": ">> In other words, what's happening in the",
+      "baseline": {
+        "text": "> En otras palabras, lo que está pasando en",
+        "char_count": 43
+      },
+      "candidates": [
+        {
+          "text": "> En otras palabras, lo que está pasando en",
+          "char_count": 43,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 132,
+      "source": "street of Hormuz impacts the entire",
+      "baseline": {
+        "text": "calle de Hormuz impacta todo el",
+        "char_count": 31
+      },
+      "candidates": [
+        {
+          "text": "calle de Hormuz impacta todo",
+          "char_count": 28,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "dropped pronouns/articles"
+        },
+        {
+          "text": "calle de Hormuz impacta todo el",
+          "char_count": 31,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 133,
+      "source": "world. In the United States, gas prices",
+      "baseline": {
+        "text": "mundo. En los Estados Unidos, precios del gas",
+        "char_count": 45
+      },
+      "candidates": [
+        {
+          "text": "mundo. En Estados Unidos, precios del gas",
+          "char_count": 41,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "dropped pronouns/articles"
+        },
+        {
+          "text": "mundo. En los Estados Unidos, precios del gas",
+          "char_count": 45,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 134,
+      "source": "have already jumped by more than 65",
+      "baseline": {
+        "text": "ya han saltado por más de 65",
+        "char_count": 28
+      },
+      "candidates": [
+        {
+          "text": "ya han saltado por más de 65",
+          "char_count": 28,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 135,
+      "source": "cents a gallon since the war started.",
+      "baseline": {
+        "text": "céntimos un galón desde que comenzó la guerra.",
+        "char_count": 46
+      },
+      "candidates": [
+        {
+          "text": "céntimos galón desde que comenzó guerra.",
+          "char_count": 40,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "dropped pronouns/articles"
+        },
+        {
+          "text": "céntimos un galón desde que comenzó la guerra",
+          "char_count": 45,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "truncated to fit duration"
+        },
+        {
+          "text": "céntimos un galón desde que comenzó la guerra.",
+          "char_count": 46,
+          "within_budget": false,
+          "shorter_than_baseline": true,
+          "valid": false,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": false
+    },
+    {
+      "index": 136,
+      "source": "And in Asia, which gets most of its oil",
+      "baseline": {
+        "text": "Y en Asia, que obtiene la mayor parte de su aceite",
+        "char_count": 50
+      },
+      "candidates": [
+        {
+          "text": "Y en Asia",
+          "char_count": 9,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "truncated to fit duration"
+        },
+        {
+          "text": "Y en Asia, que obtiene mayor parte de su aceite",
+          "char_count": 47,
+          "within_budget": false,
+          "shorter_than_baseline": true,
+          "valid": false,
+          "brevity_rationale": "dropped pronouns/articles"
+        },
+        {
+          "text": "Y en Asia, que obtiene la mayor parte de su aceite",
+          "char_count": 50,
+          "within_budget": false,
+          "shorter_than_baseline": true,
+          "valid": false,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": false
+    },
+    {
+      "index": 137,
+      "source": "through the straight, countries like",
+      "baseline": {
+        "text": "a través de la recta, países como",
+        "char_count": 33
+      },
+      "candidates": [
+        {
+          "text": "a través de recta, países como",
+          "char_count": 30,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "dropped pronouns/articles"
+        },
+        {
+          "text": "a través de la recta, países como",
+          "char_count": 33,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 138,
+      "source": "Thailand, Pakistan, and Bangladesh are",
+      "baseline": {
+        "text": "Tailandia, el Pakistán y Bangladesh son",
+        "char_count": 39
+      },
+      "candidates": [
+        {
+          "text": "Tailandia, Pakistán y Bangladesh son",
+          "char_count": 36,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "dropped pronouns/articles"
+        },
+        {
+          "text": "Tailandia, el Pakistán y Bangladesh son",
+          "char_count": 39,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 139,
+      "source": "already dealing with fuel shortages and",
+      "baseline": {
+        "text": "ya se trata de la escasez de combustible y",
+        "char_count": 42
+      },
+      "candidates": [
+        {
+          "text": "ya se trata de escasez de combustible y",
+          "char_count": 39,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "dropped pronouns/articles"
+        },
+        {
+          "text": "ya se trata de la escasez de combustible y",
+          "char_count": 42,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 140,
+      "source": "long lines at gas stations as drivers",
+      "baseline": {
+        "text": "líneas largas en estaciones de gas como conductores",
+        "char_count": 51
+      },
+      "candidates": [
+        {
+          "text": "líneas largas en estaciones de gas como condu",
+          "char_count": 45,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "truncated to fit duration"
+        },
+        {
+          "text": "líneas largas en estaciones de gas como conductores",
+          "char_count": 51,
+          "within_budget": false,
+          "shorter_than_baseline": true,
+          "valid": false,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": false
+    },
+    {
+      "index": 141,
+      "source": "try to fill up. Jet and diesel fuel",
+      "baseline": {
+        "text": "Trata de rellenar. Jet y diesel",
+        "char_count": 31
+      },
+      "candidates": [
+        {
+          "text": "Trata de rellenar. Jet y diesel",
+          "char_count": 31,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 142,
+      "source": "prices have also surged, up 25%.",
+      "baseline": {
+        "text": "Los precios también han aumentado, un 25%.",
+        "char_count": 42
+      },
+      "candidates": [
+        {
+          "text": "Los precios también han aumentado, 25%.",
+          "char_count": 39,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "dropped pronouns/articles"
+        },
+        {
+          "text": "Los precios también han aumentado, un 25%.",
+          "char_count": 42,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 143,
+      "source": "And as a result, higher plane tickets",
+      "baseline": {
+        "text": "Y como resultado, billetes de avión más altos",
+        "char_count": 45
+      },
+      "candidates": [
+        {
+          "text": "Y como resultado, billetes de avión más altos",
+          "char_count": 45,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 144,
+      "source": "and grocery prices are expected to",
+      "baseline": {
+        "text": "y se espera que los precios de los supermercados",
+        "char_count": 48
+      },
+      "candidates": [
+        {
+          "text": "y se espera que precios de supermercados",
+          "char_count": 40,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "dropped pronouns/articles"
+        },
+        {
+          "text": "y se espera que los precios de los supermerca",
+          "char_count": 45,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "truncated to fit duration"
+        },
+        {
+          "text": "y se espera que los precios de los supermercados",
+          "char_count": 48,
+          "within_budget": false,
+          "shorter_than_baseline": true,
+          "valid": false,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": false
+    },
+    {
+      "index": 145,
+      "source": "follow.",
+      "baseline": {
+        "text": "Sigue.",
+        "char_count": 6
+      },
+      "candidates": [
+        {
+          "text": "Sigue.",
+          "char_count": 6,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 146,
+      "source": "Give it to me straight. What is the",
+      "baseline": {
+        "text": "Dámelo directamente. ¿Qué es lo",
+        "char_count": 31
+      },
+      "candidates": [
+        {
+          "text": "Dámelo directamente. ¿Qué es lo",
+          "char_count": 31,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 147,
+      "source": "worstc case scenario that you are",
+      "baseline": {
+        "text": "peor escenario de caso que usted es",
+        "char_count": 35
+      },
+      "candidates": [
+        {
+          "text": "peor escenario de caso que es",
+          "char_count": 29,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "dropped pronouns/articles"
+        },
+        {
+          "text": "peor escenario de caso que usted es",
+          "char_count": 35,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 148,
+      "source": "predicting here?",
+      "baseline": {
+        "text": "¿Predecir aquí?",
+        "char_count": 15
+      },
+      "candidates": [
+        {
+          "text": "¿Predecir aquí?",
+          "char_count": 15,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 149,
+      "source": ">> I'm predicting that this is going to get",
+      "baseline": {
+        "text": "> Estoy prediciendo que esto va a conseguir",
+        "char_count": 43
+      },
+      "candidates": [
+        {
+          "text": "> Estoy prediciendo que esto va a conseguir",
+          "char_count": 43,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 150,
+      "source": "worse before it gets better. This is",
+      "baseline": {
+        "text": "peor antes de que mejore. Esto es",
+        "char_count": 33
+      },
+      "candidates": [
+        {
+          "text": "peor antes de que mejore. Esto es",
+          "char_count": 33,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 151,
+      "source": "going to be a longer and costier",
+      "baseline": {
+        "text": "va a ser más largo y más costoso",
+        "char_count": 32
+      },
+      "candidates": [
+        {
+          "text": "va a ser más largo y más costoso",
+          "char_count": 32,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 152,
+      "source": "conflict than just about everybody",
+      "baseline": {
+        "text": "conflicto que casi todo el mundo",
+        "char_count": 32
+      },
+      "candidates": [
+        {
+          "text": "conflicto que casi todo mundo",
+          "char_count": 29,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "dropped pronouns/articles"
+        },
+        {
+          "text": "conflicto que casi todo el mundo",
+          "char_count": 32,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 153,
+      "source": "expected.",
+      "baseline": {
+        "text": "esperado.",
+        "char_count": 9
+      },
+      "candidates": [
+        {
+          "text": "esperado.",
+          "char_count": 9,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 154,
+      "source": ">> You have said that a prolonged closure",
+      "baseline": {
+        "text": "> Usted ha dicho que un cierre prolongado",
+        "char_count": 41
+      },
+      "candidates": [
+        {
+          "text": "> ha dicho que cierre prolongado",
+          "char_count": 32,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "dropped pronouns/articles"
+        },
+        {
+          "text": "> Usted ha dicho que un cierre prolongado",
+          "char_count": 41,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 155,
+      "source": "of the street of Hormuz is a guaranteed",
+      "baseline": {
+        "text": "de la calle de Hormuz es una garantía",
+        "char_count": 37
+      },
+      "candidates": [
+        {
+          "text": "de calle de Hormuz es garantía",
+          "char_count": 30,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "dropped pronouns/articles"
+        },
+        {
+          "text": "de la calle de Hormuz es una garantía",
+          "char_count": 37,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 156,
+      "source": "global recession. Do you still stand by",
+      "baseline": {
+        "text": "recesión mundial. ¿Sigues esperando?",
+        "char_count": 36
+      },
+      "candidates": [
+        {
+          "text": "recesión mundial. ¿Sigues esperando?",
+          "char_count": 36,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 157,
+      "source": "that?",
+      "baseline": {
+        "text": "¿Eso?",
+        "char_count": 5
+      },
+      "candidates": [
+        {
+          "text": "¿Eso?",
+          "char_count": 5,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 158,
+      "source": ">> Look, yes. the the world economy cannot",
+      "baseline": {
+        "text": "> Mira, sí. la economía mundial no puede",
+        "char_count": 40
+      },
+      "candidates": [
+        {
+          "text": "> Mira, sí. economía mundial no puede",
+          "char_count": 37,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "dropped pronouns/articles"
+        },
+        {
+          "text": "> Mira, sí. la economía mundial no puede",
+          "char_count": 40,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 159,
+      "source": "grow without 20% of its energy supply.",
+      "baseline": {
+        "text": "crecer sin el 20% de su suministro energético.",
+        "char_count": 46
+      },
+      "candidates": [
+        {
+          "text": "crecer sin 20% de su suministro energético.",
+          "char_count": 43,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "dropped pronouns/articles"
+        },
+        {
+          "text": "crecer sin el 20% de su suministro energético",
+          "char_count": 45,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "truncated to fit duration"
+        },
+        {
+          "text": "crecer sin el 20% de su suministro energético.",
+          "char_count": 46,
+          "within_budget": false,
+          "shorter_than_baseline": true,
+          "valid": false,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": false
+    },
+    {
+      "index": 160,
+      "source": "Period.",
+      "baseline": {
+        "text": "Período.",
+        "char_count": 8
+      },
+      "candidates": [
+        {
+          "text": "Período.",
+          "char_count": 8,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 161,
+      "source": ">> Rarely do we recognize history in the",
+      "baseline": {
+        "text": "> Raramente reconocemos la historia en la",
+        "char_count": 41
+      },
+      "candidates": [
+        {
+          "text": "> Raramente reconocemos historia en",
+          "char_count": 35,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "dropped pronouns/articles"
+        },
+        {
+          "text": "> Raramente reconocemos la historia en la",
+          "char_count": 41,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 162,
+      "source": "making. But is that what we are",
+      "baseline": {
+        "text": "Haciendo. Pero es eso lo que somos",
+        "char_count": 34
+      },
+      "candidates": [
+        {
+          "text": "Haciendo. Pero es eso lo que somos",
+          "char_count": 34,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 163,
+      "source": "witnessing right now? We're sitting in",
+      "baseline": {
+        "text": "presenciar ahora mismo? Estamos sentados",
+        "char_count": 40
+      },
+      "candidates": [
+        {
+          "text": "presenciar ahora mismo? Estamos sentados",
+          "char_count": 40,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 164,
+      "source": "the middle of an unprecedented time.",
+      "baseline": {
+        "text": "el medio de un tiempo sin precedentes.",
+        "char_count": 38
+      },
+      "candidates": [
+        {
+          "text": "el medio de tiempo sin precedentes.",
+          "char_count": 35,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "dropped pronouns/articles"
+        },
+        {
+          "text": "el medio de un tiempo sin precedentes.",
+          "char_count": 38,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 165,
+      "source": ">> Yes, we we are experiencing a just as a",
+      "baseline": {
+        "text": "> Sí, estamos experimentando un justo como un",
+        "char_count": 45
+      },
+      "candidates": [
+        {
+          "text": "> Sí, estamos experimentando justo como",
+          "char_count": 39,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "dropped pronouns/articles"
+        },
+        {
+          "text": "> Sí, estamos experimentando un justo como un",
+          "char_count": 45,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 166,
+      "source": "factual matter the biggest energy",
+      "baseline": {
+        "text": "materia fáctica la mayor energía",
+        "char_count": 32
+      },
+      "candidates": [
+        {
+          "text": "materia fáctica mayor energía",
+          "char_count": 29,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "dropped pronouns/articles"
+        },
+        {
+          "text": "materia fáctica la mayor energía",
+          "char_count": 32,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 167,
+      "source": "disruption in history.",
+      "baseline": {
+        "text": "trastorno en la historia.",
+        "char_count": 25
+      },
+      "candidates": [
+        {
+          "text": "trastorno en historia.",
+          "char_count": 22,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "dropped pronouns/articles"
+        },
+        {
+          "text": "trastorno en la historia.",
+          "char_count": 25,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 168,
+      "source": "Um, we have to just hope and pray that",
+      "baseline": {
+        "text": "Tenemos que esperar y rezar para que",
+        "char_count": 36
+      },
+      "candidates": [
+        {
+          "text": "Tenemos que esperar y rezar para que",
+          "char_count": 36,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    },
+    {
+      "index": 169,
+      "source": "it doesn't go on for too much longer.",
+      "baseline": {
+        "text": "No continúa por mucho tiempo.",
+        "char_count": 29
+      },
+      "candidates": [
+        {
+          "text": "No continúa por mucho tiempo.",
+          "char_count": 29,
+          "within_budget": true,
+          "shorter_than_baseline": true,
+          "valid": true,
+          "brevity_rationale": "baseline"
+        }
+      ],
+      "segment_ok": true
+    }
+  ],
+  "summary": {
+    "total_segments": 170,
+    "segments_with_violations": 26,
+    "segment_violation_rate": 0.15294117647058825,
+    "total_candidates": 282,
+    "violating_candidates": 31,
+    "candidate_violation_rate": 0.1099290780141844
+  }
+}
