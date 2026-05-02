@@ -12,6 +12,7 @@ import type {
 import {
   downloadVideo,
   transcribeVideo,
+  diarizeVideo,
   translateVideo,
   synthesizeSpeech,
   stitchVideo,
@@ -191,7 +192,10 @@ export function usePipeline() {
 
     try {
       const dl = await run("download", () => downloadVideo(video.url));
-      await run("transcribe", () => transcribeVideo(dl.video_id, settings.useYoutubeCaptions));
+      await run("transcribe", () => transcribeVideo(dl.video_id, settings.useYoutubeCaptions));      
+      if (settings.diarization.length > 0) {
+        await run("diarize", () => diarizeVideo(dl.video_id));
+      }
       await run("translate", () => translateVideo(dl.video_id, "es"));
 
       // Run TTS + stitch for each config entry.

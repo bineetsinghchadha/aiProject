@@ -208,6 +208,46 @@ def _synthesize_raw(tts_engine, text: str, wav_path: str) -> bytes | None:
         return None
 
 
+def _synthesize_raw_with_speaker(
+    tts_engine,
+    text: str,
+    wav_path: str,
+    speaker_wav: str,
+) -> bytes | None:
+    """GPU-bound: synthesize with a per-speaker reference WAV for voice cloning.
+
+    When *speaker_wav* is non-empty, passes it through to the Chatterbox
+    ``/v1/audio/speech/upload`` endpoint.  Falls back to ``_synthesize_raw``
+    when the engine is not a ``ChatterboxClient`` (e.g. local Coqui fallback)
+    or when *speaker_wav* is empty.
+
+    Args:
+        tts_engine:  The active TTS engine instance.
+        text:        Text to synthesize.
+        wav_path:    Destination WAV path for the raw output.
+        speaker_wav: Relative path to the reference WAV inside the speakers
+                     directory (e.g. ``"es/SPEAKER_00.wav"``).  Pass ``""``
+                     to use the engine's default voice.
+
+    Returns:
+        Raw WAV bytes, or ``None`` on failure (caller inserts silence).
+    """
+    if not text or not text.strip():
+        return None
+    if not speaker_wav:
+        # No specific voice — use the plain synthesis path.
+        return _synthesize_raw(tts_engine, text, wav_path)
+    try:
+        tts_engine.tts_to_file(text=text, file_path=wav_path, speaker_wav=speaker_wav)
+        return pathlib.Path(wav_path).read_bytes()
+    except Exception as exc:
+        _logging.getLogger(__name__).warning(
+            "[tts] speaker-voice synthesis failed for %s (%s); retrying with default voice",
+            speaker_wav, exc,
+        )
+        return _synthesize_raw(tts_engine, text, wav_path)
+
+
 def _postprocess_segment(raw_wav_bytes: bytes | None, target_sec: float,
                          stretch_factor: float, alignment_enabled: bool,
                          work_dir: str) -> tuple:
@@ -395,7 +435,16 @@ def _compute_speech_offset(source_path: str) -> float:
     return yt_start - whisper_start
 
 
-def text_file_to_speech(source_path, output_path, tts_engine=None, *, alignment=None):
+def text_file_to_speech(
+    source_path,
+    output_path,
+    tts_engine=None,
+    *,
+    alignment=None,
+    diarization_path: str | None = None,
+    speakers_dir: str | None = None,
+    target_language: str = "es",
+):
     """Read translated JSON with segment timestamps and produce a time-aligned WAV.
 
     Each segment is individually synthesized and time-stretched to match its
@@ -403,11 +452,26 @@ def text_file_to_speech(source_path, output_path, tts_engine=None, *, alignment=
     Applies the YouTube caption timing offset so TTS audio starts when speech
     actually begins in the original video.
 
-    *tts_engine* overrides the module-level ``tts`` instance (used by the
-    FastAPI app which loads the model at startup).
+    When *diarization_path* and *speakers_dir* are both provided, each segment
+    is synthesized with the reference voice of the speaker who occupies the
+    majority of that segment's time window (per-speaker voice cloning via
+    Chatterbox ``/v1/audio/speech/upload``).  Segments with no diarization
+    match fall back to the engine's default voice.
 
-    *alignment* overrides the module-level ``_ALIGNMENT_ENABLED`` flag.
-    Pass True for aligned mode, False for baseline, or None to use the env var.
+    Args:
+        source_path:       Path to the translated ``.json`` transcript.
+        output_path:       Directory where the output ``.wav`` will be written.
+        tts_engine:        Override the module-level TTS engine singleton.
+        alignment:         Override ``FW_ALIGNMENT`` env var.  Pass ``True``
+                           for aligned mode, ``False`` for baseline, ``None``
+                           to use the env var.
+        diarization_path:  Path to a ``.diarize.json`` sidecar produced by
+                           ``AlignmentService.diarize()``.  Pass ``None`` (the
+                           default) to disable per-speaker voice selection.
+        speakers_dir:      Absolute path to the ``pipeline_data/speakers/``
+                           directory.  Required when *diarization_path* is set.
+        target_language:   BCP-47 language code used for voice directory lookup
+                           (default ``"es"``).
     """
     engine = tts_engine if tts_engine is not None else _get_tts_engine()
     use_alignment = alignment if alignment is not None else _ALIGNMENT_ENABLED
@@ -439,6 +503,39 @@ def text_file_to_speech(source_path, output_path, tts_engine=None, *, alignment=
         _metrics_list, align_map = [], {}
     _aligned_list = list(align_map.values())
 
+    # ── Load diarization and pre-resolve per-speaker reference WAVs ─────
+    # Diarization is optional.  When present, each segment is synthesized with
+    # the voice of the speaker who occupies the majority of that time window.
+    _speaker_wav_map: dict[str, str] = {}   # {speaker_id: relative wav path}
+    _diarization: list[dict] = []
+
+    if diarization_path and speakers_dir:
+        from foreign_whispers.voice_resolution import (
+            build_speaker_wav_map,
+            load_diarization,
+        )
+        _diarization = load_diarization(diarization_path)
+        if _diarization:
+            _speaker_wav_map = build_speaker_wav_map(
+                _diarization,
+                pathlib.Path(speakers_dir),
+                target_language,
+            )
+            unique_voices = sum(1 for v in _speaker_wav_map.values() if v)
+            print(
+                f" (diarization: {len(_diarization)} intervals, "
+                f"{len(_speaker_wav_map)} speakers, "
+                f"{unique_voices} reference WAVs)",
+                end="",
+            )
+        else:
+            print(" (diarization sidecar empty — using default voice)", end="")
+    elif diarization_path and not speakers_dir:
+        _logging.getLogger(__name__).warning(
+            "[tts] diarization_path provided but speakers_dir is None — "
+            "per-speaker voice selection disabled"
+        )
+
     # ── Prepare per-segment metadata ────────────────────────────────────
     seg_metas = []
     for i, seg in enumerate(segments):
@@ -456,14 +553,30 @@ def text_file_to_speech(source_path, output_path, tts_engine=None, *, alignment=
                     en_text = en_segs[i].get("text", "")
                 seg_text = _shorten_segment_text(en_text, seg["text"], target_sec)
 
+        # ── Per-speaker voice resolution ────────────────────────────────
+        # Identify which speaker dominates this segment's time window, then
+        # look up their pre-resolved reference WAV.  Falls back to "" (default
+        # voice) when diarization is absent or no interval overlaps enough.
+        speaker_id: str | None = None
+        speaker_wav_seg: str = ""
+        if _diarization:
+            from foreign_whispers.voice_resolution import speaker_for_segment
+            speaker_id = speaker_for_segment(
+                seg["start"], seg["end"], _diarization
+            )
+            if speaker_id:
+                speaker_wav_seg = _speaker_wav_map.get(speaker_id, "")
+
         seg_metas.append({
-            "index": i,
-            "text": seg_text,
-            "start": seg["start"],
-            "end": seg["end"],
-            "target_sec": target_sec,
+            "index":          i,
+            "text":           seg_text,
+            "start":          seg["start"],
+            "end":            seg["end"],
+            "target_sec":     target_sec,
             "stretch_factor": stretch_factor,
-            "aligned_seg": aligned_seg,
+            "aligned_seg":    aligned_seg,
+            "speaker_id":     speaker_id,
+            "speaker_wav":    speaker_wav_seg,
         })
 
     # ── Phase 1: GPU synthesis (concurrent) ───────────────────────────
@@ -475,13 +588,22 @@ def text_file_to_speech(source_path, output_path, tts_engine=None, *, alignment=
     raw_wav_map: dict[int, bytes | None] = {}
 
     with tempfile.TemporaryDirectory() as synth_dir:
-        def _do_synth(idx: int, text: str) -> tuple[int, bytes | None]:
+        def _do_synth(
+            idx: int,
+            text: str,
+            spk_wav: str,
+        ) -> tuple[int, bytes | None]:
             wav_path = str(pathlib.Path(synth_dir) / f"seg_{idx}.wav")
-            return idx, _synthesize_raw(engine, text, wav_path)
+            return idx, _synthesize_raw_with_speaker(engine, text, wav_path, spk_wav)
 
         with ThreadPoolExecutor(max_workers=_TTS_WORKERS) as pool:
             futures = {
-                pool.submit(_do_synth, m["index"], m["text"]): m["index"]
+                pool.submit(
+                    _do_synth,
+                    m["index"],
+                    m["text"],
+                    m["speaker_wav"],
+                ): m["index"]
                 for m in seg_metas
             }
             for fut in as_completed(futures):
@@ -511,13 +633,15 @@ def text_file_to_speech(source_path, output_path, tts_engine=None, *, alignment=
 
             aligned_seg = m["aligned_seg"]
             segment_details.append({
-                "index": i,
-                "text": m["text"],
-                "target_sec": round(m["target_sec"], 3),
+                "index":          i,
+                "text":           m["text"],
+                "target_sec":     round(m["target_sec"], 3),
                 "stretch_factor": round(m["stretch_factor"], 3),
                 "raw_duration_s": round(seg_raw_duration, 3),
-                "speed_factor": round(seg_speed_factor, 3),
-                "action": aligned_seg.action.value if aligned_seg and hasattr(aligned_seg, "action") else "unknown",
+                "speed_factor":   round(seg_speed_factor, 3),
+                "action":         aligned_seg.action.value if aligned_seg and hasattr(aligned_seg, "action") else "unknown",
+                "speaker_id":     m.get("speaker_id"),
+                "speaker_wav":    m.get("speaker_wav", ""),
             })
 
             if seg_audio is not None:
