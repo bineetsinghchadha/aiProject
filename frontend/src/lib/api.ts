@@ -2,6 +2,7 @@ import type {
   DownloadResponse,
   TranscribeResponse,
   TranslateResponse,
+  DiarizeResponse,
   TTSResponse,
   StitchResponse,
 } from "./types";
