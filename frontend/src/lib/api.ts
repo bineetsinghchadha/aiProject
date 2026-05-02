@@ -49,6 +49,12 @@ export async function translateVideo(
   );
 }
 
+export async function diarizeVideo(videoId: string): Promise<DiarizeResponse> {
+  return fetchJson<DiarizeResponse>(`/api/diarize/${videoId}`, {
+    method: "POST",
+  });
+}
+
 export async function synthesizeSpeech(
   videoId: string,
   config: string,

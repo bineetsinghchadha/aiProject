@@ -235,11 +235,12 @@ _PHRASE_TABLE: list[tuple[str, str]] = [
 ]
 
 _FILLER_WORDS: frozenset[str] = frozenset([
-    "muy", "realmente", "básicamente", "simplemente",
+    # stored in lowercase ASCII (accent-stripped) — compared via _ascii_lower()
+    "muy", "realmente", "basicamente", "simplemente",
     "solamente", "exactamente", "totalmente", "absolutamente",
     "completamente", "verdaderamente", "ciertamente", "definitivamente",
     "efectivamente", "evidentemente", "obviamente", "claramente",
-    "prácticamente", "literalmente", "francamente",
+    "practicamente", "literalmente", "francamente",
 ])
 
 # Subject pronouns that can be dropped when context makes the subject clear.
@@ -267,7 +268,11 @@ def _apply_phrase_table(text: str) -> str:
 
 
 def _remove_fillers(text: str) -> str:
-    """Strip adverbial filler words that carry no semantic content."""
+    """Strip adverbial filler words that carry no semantic content.
+
+    Uses accent-insensitive comparison so accented forms (e.g. "básicamente")
+    match their ASCII-normalised entry in ``_FILLER_WORDS``.
+    """
     words = text.split()
     return " ".join(w for w in words if _ascii_lower(w) not in _FILLER_WORDS)
 
@@ -314,29 +319,37 @@ def _stage1_lookup(
 ) -> list[TranslationCandidate]:
     """Stage 1: deterministic lookup-based compression.
 
-    Applies transformations in a pipeline, emitting a candidate after each
-    step that actually changes the text.  The pipeline is:
+    Applies transformations in a cumulative pipeline, emitting a new candidate
+    after each step that actually changes the text.  The pipeline is:
 
         phrase-table → filler removal → subject elision → article dropping
 
-    All four transformations are cumulative: each step starts from the output
-    of the previous one.
+    Each step starts from the output of the previous step *and* is also applied
+    independently to the raw baseline so that filler words are caught even when
+    no phrase-table substitution fired.
     """
     candidates: list[TranslationCandidate] = []
 
-    # Step 1a: phrase table
+    # Step 1a: phrase table (applied to baseline)
     after_phrases = _normalize(_apply_phrase_table(baseline))
     if after_phrases != baseline:
         candidates.append(_make_candidate(after_phrases, "phrase-table compression", stage=1))
 
+    # The cumulative working text: if phrases fired use that; otherwise stay on baseline.
     working = after_phrases
 
-    # Step 1b: filler removal
-    after_fillers = _normalize(_remove_fillers(working))
-    if after_fillers != working:
-        candidates.append(_make_candidate(after_fillers, "filler-word removal", stage=1))
+    # Step 1b: filler removal — applied to BOTH the raw baseline and working text,
+    # so it fires even when phrase-table produced no change.
+    after_fillers_raw     = _normalize(_remove_fillers(baseline))
+    after_fillers_working = _normalize(_remove_fillers(working))
 
-    working = after_fillers
+    # Prefer the cumulative (working) version; fall back to raw baseline version.
+    if after_fillers_working != working:
+        candidates.append(_make_candidate(after_fillers_working, "filler-word removal", stage=1))
+        working = after_fillers_working
+    elif after_fillers_raw != baseline:
+        candidates.append(_make_candidate(after_fillers_raw, "filler-word removal", stage=1))
+        working = after_fillers_raw
 
     # Step 1c: subject pronoun elision (context-aware)
     after_elision = _normalize(_elide_subject_pronoun(working, context_prev))
@@ -346,8 +359,7 @@ def _stage1_lookup(
             "subject-pronoun elision (context: prev segment establishes subject)",
             stage=1,
         ))
-
-    working = after_elision
+        working = after_elision
 
     # Step 1d: mid-sentence article dropping
     after_articles = _normalize(_drop_mid_sentence_articles(working))
@@ -659,8 +671,11 @@ def get_shorter_translations(
         _add(c)
 
     # ── Stage 4: hard truncation ─────────────────────────────────────────
-    # Apply to the best candidate we have so far (fewest chars).
-    best_so_far = min(all_cands, key=lambda c: c.char_count).text
+    # Apply to the shortest candidate we have so far (or baseline if nothing else).
+    if all_cands:
+        best_so_far = min(all_cands, key=lambda c: c.char_count).text
+    else:
+        best_so_far = baseline
     s4 = _stage4_truncate(best_so_far, target_duration_s)
     for c in s4:
         _add(c)
@@ -677,283 +692,3 @@ def get_shorter_translations(
     )
 
     return result
-
-
-# //////////////////////////////////////////////////
-# """Deterministic failure analysis and translation re-ranking stubs.
-
-# The failure analysis function uses simple threshold rules derived from
-# SegmentMetrics.  The translation re-ranking function is a **student assignment**
-# — see the docstring for inputs, outputs, and implementation guidance.
-# """
-
-# import dataclasses
-# import logging
-
-# logger = logging.getLogger(__name__)
-
-
-# @dataclasses.dataclass
-# class TranslationCandidate:
-#     """A candidate translation that fits a duration budget.
-
-#     Attributes:
-#         text: The translated text.
-#         char_count: Number of characters in *text*.
-#         brevity_rationale: Short explanation of what was shortened.
-#     """
-#     text: str
-#     char_count: int
-#     brevity_rationale: str = ""
-
-
-# @dataclasses.dataclass
-# class FailureAnalysis:
-#     """Diagnostic summary of the dominant failure mode in a clip.
-
-#     Attributes:
-#         failure_category: One of "duration_overflow", "cumulative_drift",
-#             "stretch_quality", or "ok".
-#         likely_root_cause: One-sentence description.
-#         suggested_change: Most impactful next action.
-#     """
-#     failure_category: str
-#     likely_root_cause: str
-#     suggested_change: str
-
-
-# def analyze_failures(report: dict) -> FailureAnalysis:
-#     """Classify the dominant failure mode from a clip evaluation report.
-
-#     Pure heuristic — no LLM needed.  The thresholds below match the policy
-#     bands defined in ``alignment.decide_action``.
-
-#     Args:
-#         report: Dict returned by ``clip_evaluation_report()``.  Expected keys:
-#             ``mean_abs_duration_error_s``, ``pct_severe_stretch``,
-#             ``total_cumulative_drift_s``, ``n_translation_retries``.
-
-#     Returns:
-#         A ``FailureAnalysis`` dataclass.
-#     """
-#     mean_err = report.get("mean_abs_duration_error_s", 0.0)
-#     pct_severe = report.get("pct_severe_stretch", 0.0)
-#     drift = abs(report.get("total_cumulative_drift_s", 0.0))
-#     retries = report.get("n_translation_retries", 0)
-
-#     if pct_severe > 20:
-#         return FailureAnalysis(
-#             failure_category="duration_overflow",
-#             likely_root_cause=(
-#                 f"{pct_severe:.0f}% of segments exceed the 1.4x stretch threshold — "
-#                 "translated text is consistently too long for the available time window."
-#             ),
-#             suggested_change="Implement duration-aware translation re-ranking (P8).",
-#         )
-
-#     if drift > 3.0:
-#         return FailureAnalysis(
-#             failure_category="cumulative_drift",
-#             likely_root_cause=(
-#                 f"Total drift is {drift:.1f}s — small per-segment overflows "
-#                 "accumulate because gaps between segments are not being reclaimed."
-#             ),
-#             suggested_change="Enable gap_shift in the global alignment optimizer (P9).",
-#         )
-
-#     if mean_err > 0.8:
-#         return FailureAnalysis(
-#             failure_category="stretch_quality",
-#             likely_root_cause=(
-#                 f"Mean duration error is {mean_err:.2f}s — segments fit within "
-#                 "stretch limits but the stretch distorts audio quality."
-#             ),
-#             suggested_change="Lower the mild_stretch ceiling or shorten translations.",
-#         )
-
-#     return FailureAnalysis(
-#         failure_category="ok",
-#         likely_root_cause="No dominant failure mode detected.",
-#         suggested_change="Review individual outlier segments if any remain.",
-#     )
-
-
-# def get_shorter_translations(
-#     source_text: str,
-#     baseline_es: str,
-#     target_duration_s: float,
-#     context_prev: str = "",
-#     context_next: str = "",
-# ) -> list[TranslationCandidate]:
-#     """Return shorter translation candidates that fit *target_duration_s*.
-
-#     .. admonition:: Student Assignment — Duration-Aware Translation Re-ranking
-
-#        This function is intentionally a **stub that returns an empty list**.
-#        Your task is to implement a strategy that produces shorter
-#        target-language translations when the baseline translation is too long
-#        for the time budget.
-
-#        **Inputs**
-
-#        ============== ======== ==================================================
-#        Parameter      Type     Description
-#        ============== ======== ==================================================
-#        source_text    str      Original source-language segment text
-#        baseline_es    str      Baseline target-language translation (from argostranslate)
-#        target_duration_s float Time budget in seconds for this segment
-#        context_prev   str      Text of the preceding segment (for coherence)
-#        context_next   str      Text of the following segment (for coherence)
-#        ============== ======== ==================================================
-
-#        **Outputs**
-
-#        A list of ``TranslationCandidate`` objects, sorted shortest first.
-#        Each candidate has:
-
-#        - ``text``: the shortened target-language translation
-#        - ``char_count``: ``len(text)``
-#        - ``brevity_rationale``: short note on what was changed
-
-#        **Duration heuristic**: target-language TTS produces ~15 characters/second
-#        (or ~4.5 syllables/second for Romance languages).  So a 3-second budget
-#        ≈ 45 characters.
-
-#        **Approaches to consider** (pick one or combine):
-
-#        1. **Rule-based shortening** — strip filler words, use shorter synonyms
-#           from a lookup table, contract common phrases
-#           (e.g. "en este momento" → "ahora").
-#        2. **Multiple translation backends** — call argostranslate with
-#           paraphrased input, or use a second translation model, then pick
-#           the shortest output that preserves meaning.
-#        3. **LLM re-ranking** — use an LLM (e.g. via an API) to generate
-#           condensed alternatives.  This was the previous approach but adds
-#           latency, cost, and a runtime dependency.
-#        4. **Hybrid** — rule-based first, fall back to LLM only for segments
-#           that still exceed the budget.
-
-#        **Evaluation criteria**: the caller selects the candidate whose
-#        ``len(text) / 15.0`` is closest to ``target_duration_s``.
-
-#     Returns:
-#         Empty list (stub).  Implement to return ``TranslationCandidate`` items.
-#     """
-#     # logger.info(
-#     #     "get_shorter_translations called for %.1fs budget (%d chars baseline) — "
-#     #     "returning empty list (student assignment stub).",
-#     #     target_duration_s,
-#     #     len(baseline_es),
-#     # )
-#     max_chars = int(target_duration_s * 15)
-
-#     def normalize(text: str) -> str:
-#         return " ".join(text.strip().split())
-
-#     def make_candidate(text: str, rationale: str) -> TranslationCandidate:
-#         text = normalize(text)
-#         return TranslationCandidate(
-#             text=text,
-#             char_count=len(text),
-#             brevity_rationale=rationale,
-#         )
-
-#     candidates = []
-
-#     baseline = normalize(baseline_es)
-#     candidates.append(make_candidate(baseline, "baseline"))
-
-#     # --- Rule 1: Replace common long phrases with shorter equivalents ---
-#     replacements = {
-#         "en este momento": "ahora",
-#         "en este instante": "ahora",
-#         "debido a que": "porque",
-#         "a pesar de que": "aunque",
-#         "con el fin de": "para",
-#         "de la misma manera": "igual",
-#         "por lo tanto": "así que",
-#         "sin embargo": "pero",
-#         "es posible que": "quizá",
-#         "tiene la capacidad de": "puede",
-#         "es necesario": "hay que",
-#     }
-
-#     shortened = baseline
-#     for k, v in replacements.items():
-#         shortened = shortened.replace(k, v)
-#     if shortened != baseline:
-#         candidates.append(make_candidate(shortened, "phrase replacements"))
-
-#     # --- Rule 2: Remove filler words ---
-#     fillers = [
-#         "muy", "realmente", "básicamente", "en realidad",
-#         "simplemente", "solo", "solamente"
-#     ]
-
-#     def remove_fillers(text: str) -> str:
-#         words = text.split()
-#         return " ".join(w for w in words if w.lower() not in fillers)
-
-#     no_fillers = remove_fillers(shortened)
-#     if no_fillers != shortened:
-#         candidates.append(make_candidate(no_fillers, "removed fillers"))
-
-#     # --- Rule 3: Drop optional pronouns/articles (light heuristic) ---
-#     drop_words = {"yo", "tú", "usted", "nosotros", "ellos", "ellas"}
-#     articles = {"el", "la", "los", "las", "un", "una", "unos", "unas"}
-
-#     def drop_optionals(text: str) -> str:
-#         words = text.split()
-#         result = []
-#         for i, w in enumerate(words):
-#             lw = w.lower()
-#             # Drop pronouns always
-#             if lw in drop_words:
-#                 continue
-#             # Drop articles only if not first word
-#             if lw in articles and i != 0:
-#                 continue
-#             result.append(w)
-#         return " ".join(result)
-
-#     compact = drop_optionals(no_fillers)
-#     if compact != no_fillers:
-#         candidates.append(make_candidate(compact, "dropped pronouns/articles"))
-
-#     # --- Rule 4: Truncate trailing clauses if still too long ---
-#     def truncate(text: str, max_len: int) -> str:
-#         if len(text) <= max_len:
-#             return text
-#         # Try cutting at punctuation first
-#         for sep in [".", ",", ";", " y ", " pero "]:
-#             parts = text.split(sep)
-#             if len(parts) > 1:
-#                 truncated = parts[0]
-#                 if len(truncated) <= max_len:
-#                     return truncated
-#         # Hard cut
-#         return text[:max_len].rstrip()
-
-#     for c in list(candidates):
-#         if c.char_count > max_chars:
-#             truncated = truncate(c.text, max_chars)
-#             candidates.append(
-#                 make_candidate(truncated, "truncated to fit duration")
-#             )
-
-#     # --- Filter + sort ---
-#     # Keep unique texts only
-#     unique = {}
-#     for c in candidates:
-#         unique[c.text] = c
-
-#     result = list(unique.values())
-
-#     # Sort shortest first
-#     result.sort(key=lambda x: x.char_count)
-
-#     return result
-
-
-
-# //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
