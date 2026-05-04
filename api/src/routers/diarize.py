@@ -92,17 +92,7 @@ async def diarize_endpoint(video_id: str) -> DiarizeResponse:
     speakers = sorted({s["speaker"] for s in diar_segments})
     result   = {"speakers": speakers, "segments": diar_segments}
     diar_path.write_text(json.dumps(result, indent=2))
-    from foreign_whispers.diarization import assign_speakers
 
-    transcript_path = settings.transcriptions_dir / f"{title}.json"
-    if transcript_path.exists():
-        transcript = json.loads(transcript_path.read_text())
-        labeled_segments = assign_speakers(
-            transcript.get("segments", []), diar_segments
-        )
-        transcript["segments"] = labeled_segments
-        transcript_path.write_text(json.dumps(transcript))
-    
     return DiarizeResponse(
         video_id=video_id,
         speakers=speakers,

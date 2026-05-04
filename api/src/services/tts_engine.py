@@ -5,6 +5,7 @@ import pathlib
 import json
 import glob
 import tempfile
+import unicodedata
 
 import requests
 import librosa
@@ -43,6 +44,20 @@ class ChatterboxClient:
         self.base_url = base_url.rstrip("/")
         self.speaker_wav = speaker_wav  # path relative to pipeline_data/speakers/
 
+    @staticmethod
+    def _transliterate(text: str) -> str:
+        """Replace non-ASCII characters Chatterbox can't tokenize.
+
+        Chatterbox's tokenizer vocab is ASCII-only; accented characters
+        cause CUDA device-side asserts (token ID out of bounds).
+        Decomposes accented chars (é → e + combining accent) then strips
+        the combining marks, leaving plain ASCII equivalents.
+        """
+        normalized = unicodedata.normalize("NFD", text)
+        return "".join(
+            c for c in normalized if unicodedata.category(c) != "Mn"
+        ).encode("ascii", errors="ignore").decode("ascii")
+
     def tts_to_file(self, text: str, file_path: str, **kwargs) -> None:
         """Synthesize *text* via the Chatterbox API and save the WAV to *file_path*.
 
@@ -78,7 +93,7 @@ class ChatterboxClient:
         """Call /v1/audio/speech with the server's default voice."""
         resp = requests.post(
             f"{self.base_url}/v1/audio/speech",
-            json={"input": text, "response_format": "wav"},
+            json={"input": self._transliterate(text), "response_format": "wav"},
             timeout=(5, 60),
         )
         resp.raise_for_status()
@@ -101,7 +116,7 @@ class ChatterboxClient:
         with open(wav_path, "rb") as f:
             resp = requests.post(
                 f"{self.base_url}/v1/audio/speech/upload",
-                data={"input": text, "response_format": "wav"},
+                data={"input": self._transliterate(text), "response_format": "wav"},
                 files={"voice_file": (wav_path.name, f, "audio/wav")},
                 timeout=(5, 60),
             )

@@ -1,104 +1,3 @@
-# services:
-#   # ── STT (Speech-to-Text) — GPU only ────────────────────────────────
-#   whisper-gpu:
-#     container_name: foreign-whispers-stt
-#     profiles: [nvidia]
-#     image: ghcr.io/speaches-ai/speaches:latest-cuda-12.6.3
-#     restart: unless-stopped
-#     ports:
-#       - "8000:8000"
-#     volumes:
-#       - whisper-cache:/home/ubuntu/.cache/huggingface/hub
-#     environment:
-#       - WHISPER__MODEL=Systran/faster-whisper-medium
-#     deploy:
-#       resources:
-#         reservations:
-#           devices:
-#             - driver: nvidia
-#               count: all
-#               capabilities: [gpu]
-#     healthcheck:
-#       test: ["CMD", "curl", "--fail", "http://0.0.0.0:8000/health"]
-#       interval: 30s
-#       timeout: 10s
-#       retries: 3
-#       start_period: 30s
-
-#   # ── TTS (Text-to-Speech) — Chatterbox on GPU ──────────────────────
-#   chatterbox-gpu:
-#     container_name: foreign-whispers-tts
-#     profiles: [nvidia]
-#     image: travisvn/chatterbox-tts-api:latest
-#     restart: unless-stopped
-#     shm_size: "8gb"
-#     ports:
-#       - "8020:8020"
-#     environment:
-#       - DEVICE=cuda
-#       - DEFAULT_MODEL=multilingual
-#       - PORT=8020
-#     volumes:
-#       - chatterbox-models:/app/models
-#       - ./pipeline_data/speakers:/app/voices
-#     deploy:
-#       resources:
-#         reservations:
-#           devices:
-#             - driver: nvidia
-#               count: all
-#               capabilities: [gpu]
-
-#   # ── API (CPU orchestrator) — all profiles ─────────────────────────
-#   # The API container is CPU-only. It delegates GPU work to the STT
-#   # and TTS containers above via HTTP.
-#   api:
-#     container_name: foreign-whispers-api
-#     profiles: [nvidia, cpu]
-#     build:
-#       context: .
-#       dockerfile: Dockerfile
-#       args:
-#         USER_UID: "${UID:-1000}"
-#         USER_GID: "${GID:-1000}"
-#     restart: unless-stopped
-#     # network_mode: host
-#     ports: 8080:8080
-#     command: ["uv", "run", "uvicorn", "api.src.main:app", "--host", "0.0.0.0", "--port", "8080"]
-#     environment:
-#       - CHATTERBOX_API_URL=http://localhost:8020
-#       - FW_WHISPER_MODEL=base
-#     volumes:
-#       - ./pipeline_data:/app/pipeline_data
-#       - ./foreign_whispers:/app/foreign_whispers
-#       - ./api:/app/api
-#       - ./cookies.txt:/app/cookies.txt
-
-#   # ── Frontend (Next.js) — all profiles ──────────────────────────────
-#   frontend:
-#     container_name: foreign-whispers-frontend
-#     profiles: [nvidia, cpu]
-#     build:
-#       context: ./frontend
-#       dockerfile: Dockerfile
-#     restart: unless-stopped
-#     # network_mode: host
-#     ports: 8080:8080
-#     environment:
-#       - API_URL=http://localhost:8080
-#       - HOSTNAME=0.0.0.0
-#       - PORT=8501
-#     healthcheck:
-#       test: ["CMD", "wget", "-q", "--spider", "http://localhost:8501"]
-#       interval: 15s
-#       timeout: 5s
-#       retries: 3
-#       start_period: 15s
-
-# volumes:
-#   whisper-cache:
-#   chatterbox-models:
-
 services:
   # ── STT (GPU) ────────────────────────────────
   whisper-gpu:
@@ -112,6 +11,12 @@ services:
       - whisper-cache:/home/ubuntu/.cache/huggingface/hub
     environment:
       - WHISPER__MODEL=Systran/faster-whisper-medium
+    healthcheck:
+      test: ["CMD-SHELL", "curl -sf http://localhost:8000/health || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 120s
 
   # ── TTS (GPU) ────────────────────────────────
   chatterbox-gpu:
@@ -138,22 +43,32 @@ services:
       context: .
       dockerfile: Dockerfile
     restart: unless-stopped
-
     ports:
       - "8080:8080"
-
     command: ["uv", "run", "uvicorn", "api.src.main:app", "--host", "0.0.0.0", "--port", "8080"]
-
     environment:
+      # Internal Docker DNS — containers talk to each other by service name
       - CHATTERBOX_API_URL=http://chatterbox-gpu:8020
       - WHISPER_API_URL=http://whisper-gpu:8000
       - FW_WHISPER_MODEL=base
-
+      - FW_ALIGNMENT=on
+      - FW_HF_TOKEN=${FW_HF_TOKEN:-}
+      - FW_ALIGNMENT=on
+      - FW_LOGFIRE_WRITE_TOKEN=${FW_LOGFIRE_WRITE_TOKEN:-}
+    env_file:
+      - path: .env
+        required: false
     volumes:
       - ./pipeline_data:/app/pipeline_data
       - ./foreign_whispers:/app/foreign_whispers
       - ./api:/app/api
       - ./cookies.txt:/app/cookies.txt
+    healthcheck:
+      test: ["CMD-SHELL", "curl -sf http://localhost:8080/healthz || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 20s
 
   # ── Frontend ────────────────────────────────
   frontend:
@@ -162,22 +77,30 @@ services:
     build:
       context: ./frontend
       dockerfile: Dockerfile
+      args:
+        # NEXT_PUBLIC_* baked into JS bundle — must be what browser reaches
+        NEXT_PUBLIC_API_URL: "http://localhost:8080"
+        # API_URL baked into rewrites() in next.config.ts — must be Docker DNS name
+        API_URL: "http://api:8080"
     restart: unless-stopped
-
     ports:
       - "8501:8501"
-
+    depends_on:
+      api:
+        condition: service_healthy
     environment:
+      # Server-side (SSR) fetch inside the container uses Docker DNS
       - API_URL=http://api:8080
+      # Runtime override of the public URL (belt-and-suspenders)
+      - NEXT_PUBLIC_API_URL=http://localhost:8080
       - HOSTNAME=0.0.0.0
       - PORT=8501
-
     healthcheck:
       test: ["CMD", "wget", "-q", "--spider", "http://localhost:8501"]
       interval: 15s
       timeout: 5s
-      retries: 3
-      start_period: 15s
+      retries: 5
+      start_period: 30s
 
 volumes:
   whisper-cache:

@@ -1,7 +1,5 @@
 """Speaker diarization using pyannote.audio.
-
 Extracted from notebooks/foreign_whispers_pipeline.ipynb (M2-align).
-
 Optional dependency: pyannote.audio
     pip install pyannote.audio
 Requires accepting the pyannote/speaker-diarization-3.1 licence on HuggingFace
@@ -15,7 +13,6 @@ logger = logging.getLogger(__name__)
 
 def diarize_audio(audio_path: str, hf_token: str | None = None) -> list[dict]:
     """Return speaker-labeled intervals for *audio_path*.
-
     Returns:
         List of ``{start_s: float, end_s: float, speaker: str}``.
         Empty list when pyannote.audio is absent, token is missing, or diarization fails.
@@ -23,15 +20,13 @@ def diarize_audio(audio_path: str, hf_token: str | None = None) -> list[dict]:
     if not hf_token:
         logger.warning("No HF token provided — diarization skipped.")
         return []
-
     try:
         from pyannote.audio import Pipeline
     except (ImportError, TypeError):
         logger.warning("pyannote.audio not installed — returning empty diarization.")
         return []
-
     try:
-        pipeline    = Pipeline.from_pretrained(
+        pipeline = Pipeline.from_pretrained(
             "pyannote/speaker-diarization-3.1",
             use_auth_token=hf_token,
         )
@@ -44,44 +39,34 @@ def diarize_audio(audio_path: str, hf_token: str | None = None) -> list[dict]:
         logger.warning("Diarization failed for %s: %s", audio_path, exc)
         return []
 
+
 def assign_speakers(
     segments: list[dict],
     diarization: list[dict],
 ) -> list[dict]:
     """Assign a speaker label to each transcription segment.
-
     Uses maximum temporal overlap between the segment and diarization
     intervals to determine the speaker. Defaults to ``SPEAKER_00`` when
     no overlap is found or diarization is empty.
-
     Args:
         segments:    List of ``{id, start, end, text}`` dicts.
         diarization: List of ``{start_s, end_s, speaker}`` dicts.
-
     Returns:
         New list of segment dicts with an added ``speaker`` key.
         Input dicts are never mutated.
     """
     result = []
-
     for seg in segments:
         seg_start = seg["start"]
         seg_end   = seg["end"]
-
         best_speaker = "SPEAKER_00"
         best_overlap = 0.0
-
         for interval in diarization:
-            # Calculate overlap between segment and diarization interval
             overlap_start = max(seg_start, interval["start_s"])
             overlap_end   = min(seg_end,   interval["end_s"])
             overlap       = max(0.0, overlap_end - overlap_start)
-
             if overlap > best_overlap:
                 best_overlap = overlap
                 best_speaker = interval["speaker"]
-
-        # Return a copy so we never mutate the caller's dict
         result.append({**seg, "speaker": best_speaker})
-
     return result
